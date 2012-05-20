@@ -1,0 +1,54 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleRunner/Main.cs">
+    <Files>
+      <File FileName="FreeAgent/Models/Contacts.cs" Line="11" Column="2" />
+      <File FileName="FreeAgent/Helpers/RequestHelper.cs" Line="224" Column="9" />
+      <File FileName="FreeAgent/Extensions/ModelExtensions.cs" Line="23" Column="16" />
+      <File FileName="ConsoleRunner/Main.cs" Line="36" Column="13" />
+      <File FileName="FreeAgent/Client/Client.Contact.cs" Line="62" Column="3" />
+      <File FileName="FreeAgent/Models/Projects.cs" Line="19" Column="21" />
+      <File FileName="FreeAgent/Client/Client.Company.cs" Line="39" Column="45" />
+      <File FileName="FreeAgent/Client/Client.Project.cs" Line="38" Column="37" />
+      <File FileName="FreeAgent/Models/BaseModel.cs" Line="18" Column="3" />
+      <File FileName="FreeAgent/Extensions/StringExtensions.cs" Line="30" Column="34" />
+      <File FileName="FreeAgent/Client/Client.cs" Line="193" Column="56" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="ConsoleRunner" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Main.cs" selected="True" />
+          </Node>
+          <Node name="FreeAgent" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Client" expanded="True" />
+            <Node name="Extensions" expanded="True" />
+            <Node name="Helpers" expanded="True" />
+            <Node name="Models" expanded="True" />
+          </Node>
+          <Node name="FreeAgent.Tests" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>data</Value>
+          <Value>cmd</Value>
+          <Value>cmd</Value>
+          <Value>request</Value>
+        </State>
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
