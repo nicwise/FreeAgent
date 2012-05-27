@@ -6,94 +6,33 @@ using FreeAgent.Models;
 
 namespace FreeAgent
 {
-	public class ContactClient : BaseClient
+	public class ContactClient : ResourceClient<ContactWrapper, ContactsWrapper, Contact>
 	{
 		public ContactClient(FreeAgentClient client) : base(client) {}
 		
-		public IEnumerable<Contact> All()
-		{
-			var request = CreateContactAllRequest();
-            var response = Client.Execute<ContactsWrapper>(request);
+		
+		public override void CustomizeAllRequest(RestRequest request)
+        {
+            request.AddParameter("filter", "active", ParameterType.GetOrPost);
+        }
+		
+        public override string ResouceName { get { return "contacts"; } } 
 
-            if (response != null) return response.contacts;
+        public override ContactWrapper WrapperFromSingle(Contact single)
+        {
+            return new ContactWrapper { contact = single };
+        }
+        public override IEnumerable<Contact> ListFromWrapper(ContactsWrapper wrapper)
+        {
+            return wrapper.contacts;
+        }
 
-            return null;	
-		}
-		
-		public Contact Get(string id)
-		{
-			var request = CreateContactGetRequest(id);
-            var response = Client.Execute<ContactWrapper>(request);
+        public override Contact SingleFromWrapper(ContactWrapper wrapper)
+        {
+            return wrapper.contact;
+        }
 
-            if (response != null) return response.contact;
-
-            return null;
-		}
 		
-		public Contact Put(Contact c)
-		{
-			var request = CreateContactPutRequest(c);
-            var response = Client.Execute<ContactWrapper>(request);
-
-            if (response != null) return response.contact;
-
-            return null;
-		}
-		
-		public void Delete(string id)
-		{
-			var request = CreateContactDeleteRequest(id);
-            var response = Client.Execute(request);
-            
-		}
-		
-		
-		private RestRequest CreateContactAllRequest(string filter = "active")
-		{
-			var request = new RestRequest(Method.GET);
-			request.Resource = "v{version}/contacts";
-            request.AddParameter("version", Version, ParameterType.UrlSegment);
-   			request.AddParameter("filter", filter, ParameterType.GetOrPost);
-                     
-			SetAuthentication(request);
-            return request;
-		}
-		
-		private RestRequest CreateContactGetRequest(string id)
-		{
-			var request = new RestRequest(Method.GET);
-			request.Resource = "v{version}/contacts/{id}";
-            request.AddParameter("version", Version, ParameterType.UrlSegment);
-   			request.AddParameter("id", id, ParameterType.UrlSegment);
-                     
-			SetAuthentication(request);
-            return request;
-		}
-		
-		private RestRequest CreateContactPutRequest(Contact c)
-		{
-			bool isNewRecord = string.IsNullOrEmpty(c.url);
-			var request = new RestRequest(isNewRecord ? Method.POST: Method.PUT);
-			request.RequestFormat = DataFormat.Json;
-			request.Resource = "v{version}/contacts" + (isNewRecord ? "" : "/{id}");
-            request.AddParameter("version", Version, ParameterType.UrlSegment);
-   			if (!isNewRecord) request.AddParameter("id", c.Id(), ParameterType.UrlSegment);
-            request.AddBody(new ContactWrapper { contact = c});         
-			
-			SetAuthentication(request);
-            return request;
-		}
-		
-		private RestRequest CreateContactDeleteRequest(string id)
-		{
-			var request = new RestRequest(Method.DELETE);
-			request.Resource = "v{version}/contacts/{id}";
-            request.AddParameter("version",Version, ParameterType.UrlSegment);
-   			request.AddParameter("id", id, ParameterType.UrlSegment);
-                     
-			SetAuthentication(request);
-            return request;
-		}
 		
 		
 	}

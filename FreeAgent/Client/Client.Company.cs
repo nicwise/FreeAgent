@@ -11,9 +11,17 @@ namespace FreeAgent
 	{
 		public CompanyClient(FreeAgentClient client) : base(client) {}
 		
+        public override string ResouceName
+        {
+            get
+            {
+                return "company";
+            }
+        }
+
 		public Company Single ()
 		{
-			var request = CreateCompanyRequest();
+            var request = CreateBasicRequest(Method.GET);
             var response = Client.Execute<CompanyWrapper>(request);
 
             if (response != null) return response.company;
@@ -23,7 +31,7 @@ namespace FreeAgent
 		}
 		public List<TaxTimeline> TaxTimeline()
 		{
-			var request = CreateTaxTimelineRequest();
+			var request = CreateBasicRequest(Method.GET, "/tax_timeline");
             var response = Client.Execute<TaxTimelineWrapper>(request);
 
             if (response != null) return response.timeline_items;
@@ -32,22 +40,5 @@ namespace FreeAgent
 
 		}
 		
-		public RestRequest CreateCompanyRequest()
-        {
-            var request = new RestRequest(Method.GET);
-			request.Resource = "v{version}/company";
-            request.AddParameter("version", Version, ParameterType.UrlSegment);
-            SetAuthentication(request);
-            return request;
-        }
-
-        public RestRequest CreateTaxTimelineRequest()
-        {
-            var request = new RestRequest(Method.GET);
-            request.Resource = "v{version}/company/tax_timeline";
-            request.AddParameter("version", Version, ParameterType.UrlSegment);
-            SetAuthentication(request);
-            return request;
-        }
 	}
 }

@@ -7,7 +7,31 @@ using System.Linq;
 
 namespace ConsoleRunner
 {
-    internal class MainClass
+
+    /* You need to make a file called KeyStorage.cs which has:
+     * 
+     * 
+
+
+using System;
+namespace ConsoleRunner
+{
+    public partial class MainClass
+    {
+        public static string AppKey = "";
+        public static string AppSecret = "";
+
+        public static string RefreshToken = "";
+    }
+}
+
+
+    *
+    * In it. This is excluded for git. Put your keys and the like in here
+    */
+
+
+    public partial class MainClass
     {
         public static void Main(string[] args)
         {
@@ -18,7 +42,7 @@ namespace ConsoleRunner
 			
 			FreeAgentClient.UseSandbox = true;
 			
-            var client = new FreeAgentClient(KEY_HERE, SECRET_HERE);
+            var client = new FreeAgentClient(AppKey, AppSecret);
 			
 			/*
 
@@ -53,8 +77,8 @@ namespace ConsoleRunner
 			
 			var sandbox_bttest_token = new AccessToken
 			{
-				access_token = "ACCESS_TOKEN",
-				refresh_token = "REFRESH_TOKEN",
+				access_token = "",
+				refresh_token = RefreshToken,
 				token_type = "bearer"
 			};
 			
@@ -105,8 +129,12 @@ namespace ConsoleRunner
 				address1 = DateTime.Now.ToLongTimeString()
 			};
 			
+            FreeAgentClient.Proxy = new WebProxy("127.0.0.1", 8888);
+            
 			c = client.Contact.Put(c);	
 			
+            FreeAgentClient.Proxy = null;
+
 			Console.WriteLine ("PUT: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
 			
 			//load by id
@@ -161,7 +189,7 @@ namespace ConsoleRunner
 			
 			Project p = new Project
 			{
-				url = "",
+				url = null,
 				contact = contact.UrlId(),
 				name = "project TEST",
 				status = ProjectStatus.Active,

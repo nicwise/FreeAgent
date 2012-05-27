@@ -6,7 +6,7 @@ using RestSharp;
 
 namespace FreeAgent
 {
-	public class BaseClient
+	public abstract class BaseClient
 	{
 		public FreeAgentClient Client;
 		
@@ -35,6 +35,26 @@ namespace FreeAgent
         {
             request.AddHeader("Authorization", "Bearer " + Client.CurrentAccessToken.access_token);
         }
+
+        public virtual string ResouceName { get { return "unknown"; } } 
+
+        public virtual void CustomizeAllRequest(RestRequest request)
+        {
+            //
+        }
+
+        public virtual RestRequest CreateBasicRequest(Method method, string appendToUrl = "")
+        {
+            var request = new RestRequest(method);
+            request.Resource = "v{version}/{resource}" + appendToUrl;
+            request.AddParameter("version", Version, ParameterType.UrlSegment);
+            request.AddParameter("resource", ResouceName, ParameterType.UrlSegment);
+            SetAuthentication(request);
+
+            return request;
+        }
+
+
 	}
 }
 

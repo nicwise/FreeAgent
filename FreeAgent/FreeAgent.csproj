@@ -91,6 +91,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Extensions\ModelExtensions.cs" />
     <Compile Include="Client\Client.Project.cs" />
+    <Compile Include="Client\ResourceClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
