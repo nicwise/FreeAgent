@@ -129,11 +129,9 @@ namespace ConsoleRunner
 				address1 = DateTime.Now.ToLongTimeString()
 			};
 			
-            FreeAgentClient.Proxy = new WebProxy("127.0.0.1", 8888);
-            
+
 			c = client.Contact.Put(c);	
 			
-            FreeAgentClient.Proxy = null;
 
 			Console.WriteLine ("PUT: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
 			

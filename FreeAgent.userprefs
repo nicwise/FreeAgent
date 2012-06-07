@@ -1,15 +1,25 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent/Client/Client.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent/Client/BankAccountClient.cs">
     <Files>
-      <File FileName="FreeAgent/Client/Client.Project.cs" Line="9" Column="39" />
-      <File FileName="FreeAgent/Client/Client.Contact.cs" Line="23" Column="1" />
-      <File FileName="FreeAgent/Client/BaseClient.cs" Line="53" Column="1" />
-      <File FileName="FreeAgent/Models/Projects.cs" Line="52" Column="26" />
-      <File FileName="FreeAgent/Client/Client.Company.cs" Line="24" Column="38" />
-      <File FileName="FreeAgent/Client/ResourceClient.cs" Line="86" Column="41" />
-      <File FileName="FreeAgent/Client/Client.cs" Line="193" Column="1" />
-      <File FileName="ConsoleRunner/Main.cs" Line="134" Column="1" />
+      <File FileName="FreeAgent/Client/Client.Authentication.cs" Line="16" Column="35" />
+      <File FileName="FreeAgent/Client/CompanyClient.cs" Line="24" Column="38" />
+      <File FileName="FreeAgent/Client/Client.cs" Line="178" Column="55" />
+      <File FileName="FreeAgent/Client/ContactClient.cs" Line="41" Column="1" />
+      <File FileName="FreeAgent/Client/ExpenseClient.cs" Line="17" Column="48" />
+      <File FileName="FreeAgent/Models/Expenses.cs" Line="14" Column="1" />
+      <File FileName="FreeAgent/Client/InvoiceClient.cs" Line="17" Column="48" />
+      <File FileName="FreeAgent/Models/Invoices.cs" Line="17" Column="1" />
+      <File FileName="FreeAgent/Client/TaskClient.cs" Line="19" Column="42" />
+      <File FileName="FreeAgent/Models/Tasks.cs" Line="11" Column="31" />
+      <File FileName="FreeAgent/Client/TimeslipClient.cs" Line="19" Column="50" />
+      <File FileName="FreeAgent/Models/Timeslips.cs" Line="19" Column="1" />
+      <File FileName="FreeAgent/Client/UserClient.cs" Line="19" Column="42" />
+      <File FileName="FreeAgent/Models/Users.cs" Line="10" Column="31" />
+      <File FileName="FreeAgent/Models/BankAccounts.cs" Line="35" Column="1" />
+      <File FileName="FreeAgent/Client/BankAccountClient.cs" Line="24" Column="10" />
+      <File FileName="FreeAgent/Models/Projects.cs" Line="11" Column="34" />
+      <File FileName="FreeAgent/Models/BaseModel.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +29,7 @@
           </Node>
           <Node name="FreeAgent" expanded="True">
             <Node name="Client" expanded="True">
-              <Node name="Client.cs" selected="True" />
+              <Node name="BankAccountClient.cs" selected="True" />
             </Node>
             <Node name="Extensions" expanded="True" />
             <Node name="Helpers" expanded="True" />

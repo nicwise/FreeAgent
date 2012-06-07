@@ -75,7 +75,6 @@
     <Compile Include="Helpers\RequestHelper.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Client\Client.Company.cs" />
     <Compile Include="Models\AccessToken.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Users.cs" />
@@ -87,11 +86,18 @@
     <Compile Include="Models\Invoices.cs" />
     <Compile Include="Models\Expenses.cs" />
     <Compile Include="Client\BaseClient.cs" />
-    <Compile Include="Client\Client.Contact.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Extensions\ModelExtensions.cs" />
-    <Compile Include="Client\Client.Project.cs" />
     <Compile Include="Client\ResourceClient.cs" />
+    <Compile Include="Client\CompanyClient.cs" />
+    <Compile Include="Client\ProjectClient.cs" />
+    <Compile Include="Client\ContactClient.cs" />
+    <Compile Include="Client\ExpenseClient.cs" />
+    <Compile Include="Client\InvoiceClient.cs" />
+    <Compile Include="Client\TaskClient.cs" />
+    <Compile Include="Client\TimeslipClient.cs" />
+    <Compile Include="Client\UserClient.cs" />
+    <Compile Include="Client\BankAccountClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

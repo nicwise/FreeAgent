@@ -8,10 +8,10 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/bank_accounts
 	
-	public class BankAccount
+	public class BankAccount : BaseModel
 	{
 		
-		public string path { get; set; }
+		
 		public double opening_balance { get; set; }
 		public string type { get; set; }
 		public string name { get; set; }
@@ -32,8 +32,7 @@ namespace FreeAgent
 		
 		
 		public double current_balance { get; set;}
-		public string updated_at { get; set; }
-		public string created_at { get; set; }
+
 		
 		
 	}
@@ -42,12 +41,23 @@ namespace FreeAgent
 	{
 		public BankAccountWrapper()
 		{
-			bank_accounts = new List<BankAccount>();
+		
 			bank_account = null;
 		}
 		public BankAccount bank_account { get; set; }
-		public List<BankAccount> bank_accounts { get; set; }
+	
 	}
+
+    public class BankAccountsWrapper
+    {
+        public BankAccountsWrapper()
+        {
+            bank_accounts = new List<BankAccount>();
+
+        }
+
+        public List<BankAccount> bank_accounts { get; set; }
+    }
 	
 	public class BankAccountType 
 	{

@@ -8,29 +8,41 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/tasks?project=xxx
 	
-	public class Task
+	public class Task : BaseModel
 	{
-		public string path { get; set; }
+		public Task() : base()
+        {
+
+        }
 		public string project { get; set; }
 		public string name { get; set; }
 		public bool is_billable { get; set; }
 		public double billing_rate { get; set; }
 		public string billing_period { get; set; }
 		public string status { get; set; }
-		public string created_at { get; set; }
-		public string updated_at { get; set; }
+
 	}
 	
 	public class TaskWrapper
 	{
 		public TaskWrapper()
 		{
-			tasks = new List<Task>();
 			task = null;
 		}
 		public Task task { get; set; }
-		public List<Task> tasks { get; set; }
+		
 	}
+
+    public class TasksWrapper
+    {
+        public TasksWrapper()
+        {
+            tasks = new List<Task>();
+
+        }
+
+        public List<Task> tasks { get; set; }
+    }
 	
 	
 }

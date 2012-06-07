@@ -8,15 +8,13 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/contacts
 	
-	public class Invoice
+	public class Invoice : BaseModel
 	{
-		public Invoice()
+		public Invoice() : base()
 		{
 			invoice_items = new List<InvoiceItem>();
 		}
-		public string path { get; set;}
-		public string updated_at { get; set; }
-		public string created_at { get; set; }
+
 		
 		public string reference { get; set; }
 		public string contact { get; set; }
@@ -83,13 +81,23 @@ namespace FreeAgent
 	{
 		public InvoiceWrapper()
 		{
-			invoices = new List<Invoice>();
+			
 			invoice = null;
 		}
 		public Invoice invoice { get; set; }
-		public List<Invoice> invoices { get; set; }
+		
 	}
 	
+    public class InvoicesWrapper
+    {
+        public InvoicesWrapper()
+        {
+            invoices = new List<Invoice>();
+
+        }
+
+        public List<Invoice> invoices { get; set; }
+    }
 	
 	
 }

@@ -7,29 +7,38 @@ namespace FreeAgent
 	//https://dev.freeagent.com/docs/users
 	
 	//https://api.freeagent.com/v2/users
-	public class User
+	public class User : BaseModel
 	{
-		public string url { get; set; }
+
 		public string first_name { get; set; }
 		public string last_name { get; set; }
 		public string email { get; set; }
 		public string role { get; set; }
 		public UserPermission permission_level { get; set; }
 		public double opening_mileage { get; set; }
-		public string updated_at { get; set; }
-		public string created_at { get; set; }
+
 	}
 	
 	public class UserWrapper
 	{
 		public UserWrapper()
 		{
-			users = new List<User>();
+			
 			user = null;
 		}
 		public User user { get; set; }
-		public List<User> users { get; set; }
+		
 	}
+
+    public class UsersWrapper
+    {
+        public UsersWrapper()
+        {
+            users = new List<User>();
+        }
+
+        public List<User> users { get; set; }
+    }
 	
 	public enum UserPermission 
 	{

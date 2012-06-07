@@ -157,12 +157,25 @@ namespace FreeAgent
 		public CompanyClient Company = null;
 		public ContactClient Contact = null;
 		public ProjectClient Project = null;
+
+        public ExpenseClient Expense = null;
+        public InvoiceClient Invoice = null;
+        public TaskClient Task = null;
+        public TimeslipClient Timeslip = null;
+        public UserClient User = null;
+        public BankAccountClient BankAccount = null;
 		
 		private void SetupClients()
 		{
 			Company = new CompanyClient(this);
 			Contact = new ContactClient(this);
 			Project = new ProjectClient(this);
+            Expense = new ExpenseClient(this);
+            Invoice = new InvoiceClient(this);
+            Task = new TaskClient(this);
+            Timeslip = new TimeslipClient(this);
+            User = new UserClient(this);
+            BankAccount = new BankAccountClient(this);
 		}
   
 

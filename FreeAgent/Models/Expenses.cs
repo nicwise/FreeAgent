@@ -8,12 +8,10 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/contacts
 	
-	public class Expense
+	public class Expense : BaseModel
 	{
 		
-		public string path { get; set;}
-		public string updated_at { get; set; }
-		public string created_at { get; set; }
+
 	
 		public string user { get; set;}
 		public string project { get; set;}
@@ -58,12 +56,22 @@ namespace FreeAgent
 	{
 		public ExpenseWrapper()
 		{
-			expenses = new List<Expense>();
+			
 			expense = null;
 		}
 		public Expense expense { get; set; }
-		public List<Expense> expenses { get; set; }
+		
 	}
+
+    public class ExpensesWrapper
+    {
+        public ExpensesWrapper()
+        {
+            expenses = new List<Expense>();
+        }
+
+        public List<Expense> expenses { get; set; }
+    }
 	
 	
 	
