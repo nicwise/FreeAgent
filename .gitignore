@@ -7,3 +7,4 @@ TestResults
 _ReSharper.*
 
 ConsoleRunner/KeyStorage.cs
+FreeAgent.Tests/KeyStorage.cs

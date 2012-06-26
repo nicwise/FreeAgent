@@ -14,8 +14,8 @@ namespace FreeAgent
 		public string last_name { get; set; }
 		public string email { get; set; }
 		public string role { get; set; }
-		public UserPermission permission_level { get; set; }
-		public double opening_mileage { get; set; }
+		public int permission_level { get; set; }
+		public string opening_mileage { get; set; }
 
 	}
 	
@@ -52,5 +52,15 @@ namespace FreeAgent
 		TaxAccountingAndUsers = 7,
 		Full = 8
 	}
+
+    public class UserRole
+    {
+        public static string Director = "Director";
+        public static string Accountant = "Accountant";
+        public static string CompanySecretary = "Company Secretary";
+        public static string Employee = "Employee";
+        public static string Shareholder = "Shareholder";
+
+    }
 }
 

@@ -12,7 +12,7 @@ namespace FreeAgent
 
         //need to add in the GET to have a parameter for the date filter
 
-        public override string ResouceName { get { return "timeslips"; } } 
+        public override string ResouceName { get { return "users"; } } 
 
         public override UserWrapper WrapperFromSingle(User single)
         {
@@ -26,6 +26,11 @@ namespace FreeAgent
         public override User SingleFromWrapper(UserWrapper wrapper)
         {
             return wrapper.user;
+        }
+
+        public User Me
+        {
+            get { return Get("me"); }
         }
 
         

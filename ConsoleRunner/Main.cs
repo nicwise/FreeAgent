@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using FreeAgent;
 using FreeAgent.Models;
 using System.Net;
@@ -52,7 +53,7 @@ namespace ConsoleRunner
 			string callbackUri = "http://www.fastchicken.co.nz/oauth/";
             string url = client.BuildAuthorizeUrl(callbackUri);
 
-            Console.WriteLine(url);
+            Debug.WriteLine(url);
 
             // Now cut and paste that URL, and go to it in a browser. 
             // Once you have been to the URL above, paste the URL that it sends you to into the command window
@@ -87,19 +88,19 @@ namespace ConsoleRunner
 
             var token = client.RefreshAccessToken();
 
-            Console.WriteLine("{0} / {1} / {2} / {3}", token.access_token, token.refresh_token, token.token_type, token.expires_in);
+            Debug.WriteLine("{0} / {1} / {2} / {3}", token.access_token, token.refresh_token, token.token_type, token.expires_in);
 
 
             Company company = client.Company.Single();
 
 
-            Console.WriteLine(company.name);
+            Debug.WriteLine(company.name);
 
             List<TaxTimeline> timeline = client.Company.TaxTimeline();
 
             foreach (TaxTimeline t in timeline)
             {
-               Console.WriteLine("{0} / {1} / {2} / {3}", t.dated_on, t.description, t.nature, t.amount_due);
+               Debug.WriteLine("{0} / {1} / {2} / {3}", t.dated_on, t.description, t.nature, t.amount_due);
             }
 			
 			TestContacts(client);
@@ -118,7 +119,7 @@ namespace ConsoleRunner
 			
 			foreach(var contact in contacts)
 			{
-				Console.WriteLine ("BEFORE: {0} / {1} / {2} / {3}", contact.url, contact.organisation_name, contact.first_name, contact.last_name);
+				Debug.WriteLine ("BEFORE: {0} / {1} / {2} / {3}", contact.url, contact.organisation_name, contact.first_name, contact.last_name);
 			}
 			
 			Contact c = new Contact
@@ -133,24 +134,24 @@ namespace ConsoleRunner
 			c = client.Contact.Put(c);	
 			
 
-			Console.WriteLine ("PUT: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
+			Debug.WriteLine ("PUT: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
 			
 			//load by id
 			
 			c = client.Contact.Get (c.Id());
 			
-			Console.WriteLine ("GET: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
+			Debug.WriteLine ("GET: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
 			
 			
 			
 			contacts = client.Contact.All();
 			
-			Console.WriteLine ("deleting contacts");
+			Debug.WriteLine ("deleting contacts");
 			foreach(var contact in contacts)
 			{
 				if (!contact.first_name.Contains ("TEST")) continue;
 				
-				Console.WriteLine ("DELETING: {0}", contact.url);
+				Debug.WriteLine ("DELETING: {0}", contact.url);
 				client.Contact.Delete(contact.Id());	
 			}
 			
@@ -158,11 +159,11 @@ namespace ConsoleRunner
 			
 			foreach(var contact in contacts)
 			{
-				Console.WriteLine ("AFTER: {0} / {1} / {2} / {3}", contact.url, contact.organisation_name, contact.first_name, contact.last_name);
+				Debug.WriteLine ("AFTER: {0} / {1} / {2} / {3}", contact.url, contact.organisation_name, contact.first_name, contact.last_name);
 			}
 			
 			
-			Console.WriteLine ("Done with contacts");
+			Debug.WriteLine ("Done with contacts");
 			
 		}
 		
@@ -172,7 +173,7 @@ namespace ConsoleRunner
 			
 			foreach(var item in all)
 			{
-				Console.WriteLine ("BEFORE: {0} / {1} / {2} / {3}", item.url, item.name, item.contact, item.status);
+				Debug.WriteLine ("BEFORE: {0} / {1} / {2} / {3}", item.url, item.name, item.contact, item.status);
 			}
 			
 			//first, get the contacts 'cos we need one!
@@ -181,13 +182,13 @@ namespace ConsoleRunner
 			
 			if (contact == null)
 			{
-				Console.WriteLine ("No contacts - can't do projects");
+				Debug.WriteLine ("No contacts - can't do projects");
 				return;
 			}
 			
 			Project p = new Project
 			{
-				url = null,
+				url = "",
 				contact = contact.UrlId(),
 				name = "project TEST",
 				status = ProjectStatus.Active,
@@ -196,22 +197,22 @@ namespace ConsoleRunner
 			};
 			
 			
-			FreeAgentClient.Proxy = new WebProxy("127.0.0.1", 8888);
+			//FreeAgentClient.Proxy = new WebProxy("127.0.0.1", 8888);
 			p = client.Project.Put(p);
-			FreeAgentClient.Proxy = null;
+			//FreeAgentClient.Proxy = null;
 			
-			Console.WriteLine ("PUT: {0} / {1} / {2} / {3}", p.url, p.name, p.contact, p.status);
+			Debug.WriteLine ("PUT: {0} / {1} / {2} / {3}", p.url, p.name, p.contact, p.status);
 			
 			p = client.Project.Get(p.Id());
 			
-			Console.WriteLine ("GET: {0} / {1} / {2} / {3}", p.url, p.name, p.contact, p.status);
+			Debug.WriteLine ("GET: {0} / {1} / {2} / {3}", p.url, p.name, p.contact, p.status);
 			
 			all = client.Project.All();
 			
-			Console.WriteLine ("deleting projects");
+			Debug.WriteLine ("deleting projects");
 			foreach(var item in all)
 			{
-				Console.WriteLine ("deleting {0}", item.url);
+				Debug.WriteLine ("deleting {0}", item.url);
 				client.Project.Delete(item.Id());	
 			}
 			
@@ -219,7 +220,7 @@ namespace ConsoleRunner
 			
 			foreach(var item in all)
 			{
-				Console.WriteLine ("AFTER: {0} / {1} / {2} / {3}", item.url, item.name, item.contact, item.status);
+				Debug.WriteLine ("AFTER: {0} / {1} / {2} / {3}", item.url, item.name, item.contact, item.status);
 			}
 			
 			/*
@@ -238,13 +239,13 @@ namespace ConsoleRunner
 			
 			c = client.Contact.Put(c);	
 			
-			Console.WriteLine ("PUT: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
+			Debug.WriteLine ("PUT: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
 			
 			//load by id
 			
 			c = client.Contact.Get (c.Id());
 			
-			Console.WriteLine ("GET: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
+			Debug.WriteLine ("GET: {0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
 			
 			
 			
@@ -258,22 +259,22 @@ namespace ConsoleRunner
 			
 			c = client.Contact.Put(c);	
 			
-			Console.WriteLine ("{0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
+			Debug.WriteLine ("{0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
 			
 			//load by id
 			
 			c = client.Contact.Get (c.Id());
 			
-			Console.WriteLine ("{0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
+			Debug.WriteLine ("{0} / {1} / {2} / {3}", c.url, c.organisation_name, c.first_name, c.last_name);
 			
 			
 			
 			contacts = client.Contact.All();
 			
-			Console.WriteLine ("deleting contacts");
+			Debug.WriteLine ("deleting contacts");
 			foreach(var contact in contacts)
 			{
-				Console.WriteLine ("deleting {0}", contact.url);
+				Debug.WriteLine ("deleting {0}", contact.url);
 				client.Contact.Delete(contact.Id());	
 			}
 			
@@ -281,11 +282,11 @@ namespace ConsoleRunner
 			
 			foreach(var contact in contacts)
 			{
-				Console.WriteLine ("{0} / {1} / {2} / {3}", contact.url, contact.organisation_name, contact.first_name, contact.last_name);
+				Debug.WriteLine ("{0} / {1} / {2} / {3}", contact.url, contact.organisation_name, contact.first_name, contact.last_name);
 			}
 			
 			*/
-			Console.WriteLine ("Done with projects");
+			Debug.WriteLine ("Done with projects");
 			
 		}
     }

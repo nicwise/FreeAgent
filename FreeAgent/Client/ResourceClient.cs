@@ -1,4 +1,6 @@
 using System;
+using System.Net;
+using FreeAgent.Exceptions;
 using FreeAgent.Helpers;
 using FreeAgent.Models;
 using System.Collections.Generic;
@@ -38,12 +40,25 @@ namespace FreeAgent
         
         public TSingle Get(string id)
         {
-            var request = CreateGetRequest(id);
-            var response = Client.Execute<TSingleWrapper>(request);
+            try
+            {
 
-            if (response != null) return SingleFromWrapper(response);
 
-            return null;
+                var request = CreateGetRequest(id);
+                var response = Client.Execute<TSingleWrapper>(request);
+
+                if (response != null) return SingleFromWrapper(response);
+
+                return null;
+            } catch (FreeAgentException fex)
+            {
+                if (fex.StatusCode == HttpStatusCode.NotFound)
+                {
+                    return null;
+                }
+
+                throw;
+            }
         }
         
         public TSingle Put(TSingle c)
