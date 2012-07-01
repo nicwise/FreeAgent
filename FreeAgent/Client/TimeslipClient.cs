@@ -28,6 +28,15 @@ namespace FreeAgent
             return wrapper.timeslip;
         }
 
+        public IEnumerable<Timeslip> All(string from_date, string to_date)
+        {
+            return All((r) => {
+                r.AddParameter("from_date", from_date, ParameterType.GetOrPost);
+                r.AddParameter("to_date", to_date, ParameterType.GetOrPost);
+            });
+
+        }
+
         
         
         

@@ -50,6 +50,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceFixture.cs" />
     <Compile Include="UserFixture.cs" />
+    <Compile Include="BankAccountFixture.cs" />
+    <Compile Include="CategoryFixture.cs" />
+    <Compile Include="InvoiceFixture.cs" />
+    <Compile Include="TaskFixture.cs" />
+    <Compile Include="TimeslipFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FreeAgent\FreeAgent.csproj">

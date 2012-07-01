@@ -22,6 +22,19 @@ namespace FreeAgent
 		public string status { get; set; }
 
 	}
+
+    public class TaskBillingPeriod
+    {
+        public static string Hour = "hour";
+        public static string Day = "day";
+    }
+
+    public class TaskStatus 
+    {
+        public static string Active = "active";
+        public static string Completed = "completed";
+        public static string Hidden = "hidden";
+    }
 	
 	public class TaskWrapper
 	{

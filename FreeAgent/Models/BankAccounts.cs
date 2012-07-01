@@ -10,12 +10,11 @@ namespace FreeAgent
 	
 	public class BankAccount : BaseModel
 	{
-		
-		
 		public double opening_balance { get; set; }
 		public string type { get; set; }
 		public string name { get; set; }
 		public bool is_personal { get; set; }
+        public string bank_name { get; set; }
 		
 		//for standard ones - account_number also on CC
 		public string account_number  { get; set; }
@@ -26,15 +25,9 @@ namespace FreeAgent
 				
 		//for paypal
 		public string email { get; set; }
-		
-		
-		//credit card ones
-		
-		
-		public double current_balance { get; set;}
+	
+        public double current_balance { get; set; }
 
-		
-		
 	}
 	
 	public class BankAccountWrapper

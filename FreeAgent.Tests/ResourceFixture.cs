@@ -12,6 +12,13 @@ namespace FreeAgent.Tests
         where TListWrapper : new()
         where TSingleWrapper : new()
     {
+        protected bool ExecuteCanGetList = true, ExecuteCanGetListWithContent = true, ExecuteCanLoadById = true, ExecuteCanCreateSingle = true, ExecuteCanDeleteAndCleanup = true;
+
+        public override void Configure()
+        {
+
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -21,6 +28,12 @@ namespace FreeAgent.Tests
         [Test]
         public void CanGetList()
         {
+            if (!ExecuteCanGetList) 
+            {
+                Assert.Ignore("CanGetList is being ignored");
+                return;
+            }
+
             var list = ResourceClient.All();
 
             Assert.IsNotNull(list);
@@ -30,6 +43,12 @@ namespace FreeAgent.Tests
         [Test]
         public void CanGetListWithContent()
         {
+            if (!ExecuteCanGetListWithContent) 
+            {
+                Assert.Ignore("ExecuteCanGetListWithContent is being ignored");
+                return;
+            }
+
             var list = ResourceClient.All();
 
             CheckAllList(list);
@@ -56,8 +75,14 @@ namespace FreeAgent.Tests
         [Test]
         public void CanCreateSingle()
         {
+            if (!ExecuteCanCreateSingle)
+            {
+                Assert.Ignore("ExecuteCanCreateSingle is being ignored");
+                return;
+            }
 
-            TSingle item = CreateSigleItemForInsert();
+
+            TSingle item = CreateSingleItemForInsert();
 
             TSingle result = ResourceClient.Put(item);
 
@@ -68,6 +93,12 @@ namespace FreeAgent.Tests
         [Test]
         public void CanLoadById()
         {
+            if (!ExecuteCanLoadById)
+            {
+                Assert.Ignore("ExecuteCanLoadById is being ignored");
+                return;
+            }
+
             var items = ResourceClient.All();
             CheckAllList(items);
 
@@ -80,7 +111,7 @@ namespace FreeAgent.Tests
         }
 
 
-        public virtual TSingle CreateSigleItemForInsert()
+        public virtual TSingle CreateSingleItemForInsert()
         {
             throw new NotImplementedException("needs to be overridden");
         }
@@ -97,6 +128,13 @@ namespace FreeAgent.Tests
         [Test]
         public void CanDeleteAndCleanup()
         {
+
+            if (!ExecuteCanDeleteAndCleanup)
+            {
+                Assert.Ignore("ExecuteCanDeleteAndCleanup is being ignored");
+                return;
+            }
+
             var items = ResourceClient.All();
 
             CheckAllList(items);

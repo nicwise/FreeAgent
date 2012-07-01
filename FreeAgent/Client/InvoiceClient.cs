@@ -26,7 +26,28 @@ namespace FreeAgent
             return wrapper.invoice;
         }
 
-        
+        public IEnumerable<Invoice> AllForProject(string projectId)
+        {
+            return All((r) => {
+                r.AddParameter("project", projectId, ParameterType.GetOrPost);
+            });
+        }
+
+        public IEnumerable<Invoice> AllForContact(string contactId)
+        {
+            return All((r) => {
+                r.AddParameter("contact", contactId, ParameterType.GetOrPost);
+            });
+        }
+
+        public IEnumerable<Invoice> AllWithFilter(string filter)
+        {
+            return All((r) => {
+                r.AddParameter("view", filter, ParameterType.GetOrPost);
+            });
+        }
+
+
         
         
     }

@@ -11,8 +11,15 @@ namespace FreeAgent.Tests
         protected FreeAgentClient Client;
         protected AccessToken Token;
 
-        public void SetupClient()
+        public virtual void Configure()
         {
+
+        }
+
+        public virtual void SetupClient()
+        {
+            Configure();
+
             FreeAgentClient.UseSandbox = true;
 
             Client = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret);

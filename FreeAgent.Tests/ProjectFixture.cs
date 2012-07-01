@@ -27,7 +27,7 @@ namespace FreeAgent.Tests
         }
 
 
-        public override Project CreateSigleItemForInsert()
+        public override Project CreateSingleItemForInsert()
         {
             var contact = Client.Contact.All().First();
 

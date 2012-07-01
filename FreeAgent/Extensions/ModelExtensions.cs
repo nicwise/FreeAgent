@@ -25,6 +25,21 @@ namespace FreeAgent
 				return "";
 			}
 		}
+
+        public static string ModelDateTime(this DateTime currentdate)
+        {
+            return currentdate.ToString("s");
+        }
+
+        public static string ModelDate(this DateTime currentdate)
+        {
+            return currentdate.ToString("yyyy-MM-dd");
+        }
+
+        public static DateTime FromModelDate(this string modeldate)
+        {
+            return DateTime.Parse(modeldate);
+        }
 	}
 }
 

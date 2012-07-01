@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace FreeAgent.Tests
         }
 
 
-        public override User CreateSigleItemForInsert()
+        public override User CreateSingleItemForInsert()
         {
             return new User
             {
@@ -56,6 +56,17 @@ namespace FreeAgent.Tests
         {
             return item.first_name.Contains("TEST");
 
+        }
+
+        [Test]
+        public void CanLoadMe()
+        {
+            var me = Client.User.Me;
+
+            Assert.IsNotNull(me);
+            Assert.IsNotNullOrEmpty(me.first_name);
+            Assert.IsNotNullOrEmpty(me.last_name);
+            Assert.IsNotNullOrEmpty(me.email);
         }
 
 

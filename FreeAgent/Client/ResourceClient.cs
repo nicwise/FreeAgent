@@ -28,9 +28,12 @@ namespace FreeAgent
 
 
 
-        public IEnumerable<TSingle> All()
+        public IEnumerable<TSingle> All(Action<RestRequest> customizeRequest = null)
         {
             var request = CreateAllRequest();
+
+            if (customizeRequest != null) customizeRequest(request);
+
             var response = Client.Execute<TListWrapper>(request);
 
             if (response != null) return ListFromWrapper(response);
@@ -80,14 +83,14 @@ namespace FreeAgent
 
        
 
-        private RestRequest CreateAllRequest()
+        protected RestRequest CreateAllRequest()
         {
             var request = CreateBasicRequest(Method.GET);
             CustomizeAllRequest(request);
             return request;
         }
         
-        private RestRequest CreateGetRequest(string id)
+        protected RestRequest CreateGetRequest(string id)
         {
             var request = CreateBasicRequest(Method.GET, "/{id}");
             request.AddParameter("id", id, ParameterType.UrlSegment);
@@ -95,7 +98,7 @@ namespace FreeAgent
             return request;
         }
         
-        private RestRequest CreatePutRequest(TSingle item)
+        protected RestRequest CreatePutRequest(TSingle item)
         {
             bool isNewRecord = string.IsNullOrEmpty(item.url);
             var request = CreateBasicRequest(isNewRecord ? Method.POST: Method.PUT, isNewRecord ? "" : "/{id}");
@@ -107,7 +110,7 @@ namespace FreeAgent
             return request;
         }
         
-        private RestRequest CreateDeleteRequest(string id)
+        protected RestRequest CreateDeleteRequest(string id)
         {
             var request = CreateBasicRequest(Method.DELETE, "/{id}");
 

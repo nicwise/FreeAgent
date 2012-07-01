@@ -164,6 +164,7 @@ namespace FreeAgent
         public TimeslipClient Timeslip = null;
         public UserClient User = null;
         public BankAccountClient BankAccount = null;
+        public CategoryClient Categories = null;
 		
 		private void SetupClients()
 		{
@@ -176,6 +177,7 @@ namespace FreeAgent
             Timeslip = new TimeslipClient(this);
             User = new UserClient(this);
             BankAccount = new BankAccountClient(this);
+            Categories = new CategoryClient(this);
 		}
   
 

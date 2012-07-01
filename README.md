@@ -13,6 +13,9 @@ To use FreeAgentClient you need an instance of the FreeAgentClient class, this c
 This class takes the API Key and API Secret (These must be obtained from FreeAgent to access the API).
 
 ```csharp
+    //OPTIONAL
+    FreeAgentClient.UseSandbox = true;
+    
     _client = new FreeAgentClient("API KEY", "API SECRET");
 ```
  
@@ -20,46 +23,57 @@ This class takes the API Key and API Secret (These must be obtained from FreeAge
 ##### Login/Tokens:
 FreeAgent requires a web authentication to get a usable token/secret, so this is a 3 step process.
 
-**Step 1.** Get Request Token - This step gets an oauth token from freeagent (NOTE: the token must pass the other steps before it can be used)
+**Step 1.** Authorize App with FreeAgent - This step involves sending the user to a login page on the FreeAgent site and having them authenticate there. 
+The FreeAgent client has a function to return the url for you but the rest must be handled in app, this function also takes a callback url for 
+redirecting the user to after they have logged in. (NOTE: The token still cant be used yet.)
 
 ```csharp
-    // Sync
-    _client.GetToken();
+    string callbackUri = "http://your-server.com/something";
+    string url = client.BuildAuthorizeUrl(callbackUri);
     
+    //Send the user to the url in a browser so the user can login
 ```
 
-**Step 2.** Authorize App with FreeAgent - This step involves sending the user to a login page on the FreeAgent site and having them authenticate there. The FreeAgent client has a function to return the url for you but the rest must be handled in app, this function also takes a callback url for redirecting the user to after they have logged in. (NOTE: The token still cant be used yet.)
+Open a browser with the url returned by BuildAuthorizeUrl - After we have the authorize url we need to direct the user there 
+(use some sort of browser here depending on the platform) and navigate the user to the url. This will prompt them to login and 
+authorize your app with the API.
+
+**Step 2.** Get an Access Token from the URL code and Request Token - This is the last stage of the process, converting the oauth request token into a usable 
+FreeAgent API token. This function will use the clients stored Request Token but this can be overloaded if you need to specify a token to use.
 
 ```csharp
-    var url = _client.BuildAuthorizeUrl();
-    //Use the url in a browser so the user can login
+    string code = client.ExtractCodeFromUrl(url);
+			
+	var newToken = client.GetAccessToken (code, callbackUri);
+	
+    
+    //Store this newToken.accessToken so we dont have to do all of this next time!
 ```
 
-Open a browser with the url returned by BuildAuthorizeUrl - After we have the authorize url we need to direct the user there (use some sort of browser here depending on the platform) and navigate the user to the url. This will prompt them to login and authorize your app with the API.
 
-**Step 3.** Get an Access Token from the Request Token - This is the last stage of the process, converting the oauth request token into a usable FreeAgent API token. This function will use the clients stored Request Token but this can be overloaded if you need to specify a token to use.
+
+**Once you have a token:** 
 
 ```csharp
-    // Sync
-    var accessToken = _client.GetAccessToken(); //Store this token for "remember me" function
- 
-    //Store this accessToken so we dont have to do all of this next time!
+			FreeAgentClient.UseSandbox = true;
+
+            var Client = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret);
+
+            var token = new AccessToken
+            {
+                access_token = "",
+                refresh_token = KeyStorage.RefreshToken,
+                token_type = "bearer"
+            };
+
+            Client.CurrentAccessToken = token;
+
+
+            var Token = Client.RefreshAccessToken();
+
+            if (Token == null || string.IsNullOrEmpty(Token.access_token) || string.IsNullOrEmpty(Token.refresh_token))
+            {
+                throw new Exception("Could not setup the Token");
+            }
 ```
 
-
-
-**Best Practices:** 
-
-```csharp
-    _client = new FreeAgentClient("API KEY", "API SECRET", "USER TOKEN", "USER SECRET");
-    // OR
-    _client = new FreeAgentClient("API KEY", "API SECRET");
-    _client.UserLogin = new UserLogin { Token = "USER TOKEN", Secret = "USER SECRET" };
-```
-
-***
-
-
- **Like FreeAgentClient?** Endore Damian Karzon on Coderwall - this is seriously ripped off his design for DropNet, which is a great client for Dropbox.
- 
- [![endorse](http://api.coderwall.com/dkarzon/endorsecount.png)](http://coderwall.com/dkarzon)

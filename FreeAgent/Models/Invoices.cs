@@ -76,6 +76,21 @@ namespace FreeAgent
 		public static string Credit = "Credit";
 		public static string VAT = "VAT";
 	}
+
+    public class InvoiceViewFilter 
+    {
+        public static string RecentOpenOrOverdue = "recent_open_or_overdue";
+        public static string OpenOrOverdue = "open_or_overdue";
+        public static string Draft = "draft";
+        public static string ScheduledToEmail = "scheduled_to_email";
+        public static string ThankYouEmails = "thank_you_emails";
+        public static string ReminderEmails = "reminder_emails";
+        private static string lastNMonths = "last_{0}_months";
+        public static string LastNMonths(int months = 1)
+        {
+            return string.Format(lastNMonths, months);
+        }
+    }
 	
 	public class InvoiceWrapper
 	{

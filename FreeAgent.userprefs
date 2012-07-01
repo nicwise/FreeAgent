@@ -1,35 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent/Client/BankAccountClient.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent/Client/TaskClient.cs">
     <Files>
-      <File FileName="FreeAgent/Client/Client.Authentication.cs" Line="16" Column="35" />
-      <File FileName="FreeAgent/Client/CompanyClient.cs" Line="24" Column="38" />
-      <File FileName="FreeAgent/Client/Client.cs" Line="178" Column="55" />
-      <File FileName="FreeAgent/Client/ContactClient.cs" Line="41" Column="1" />
-      <File FileName="FreeAgent/Client/ExpenseClient.cs" Line="17" Column="48" />
-      <File FileName="FreeAgent/Models/Expenses.cs" Line="14" Column="1" />
-      <File FileName="FreeAgent/Client/InvoiceClient.cs" Line="17" Column="48" />
-      <File FileName="FreeAgent/Models/Invoices.cs" Line="17" Column="1" />
-      <File FileName="FreeAgent/Client/TaskClient.cs" Line="19" Column="42" />
-      <File FileName="FreeAgent/Models/Tasks.cs" Line="11" Column="31" />
-      <File FileName="FreeAgent/Client/TimeslipClient.cs" Line="19" Column="50" />
-      <File FileName="FreeAgent/Models/Timeslips.cs" Line="19" Column="1" />
-      <File FileName="FreeAgent/Client/UserClient.cs" Line="19" Column="42" />
-      <File FileName="FreeAgent/Models/Users.cs" Line="10" Column="31" />
-      <File FileName="FreeAgent/Models/BankAccounts.cs" Line="35" Column="1" />
-      <File FileName="FreeAgent/Client/BankAccountClient.cs" Line="24" Column="10" />
-      <File FileName="FreeAgent/Models/Projects.cs" Line="11" Column="34" />
-      <File FileName="FreeAgent/Models/BaseModel.cs" Line="1" Column="1" />
+      <File FileName="FreeAgent.Tests/UserFixture.cs" Line="36" Column="26" />
+      <File FileName="FreeAgent.Tests/ResourceFixture.cs" Line="19" Column="10" />
+      <File FileName="FreeAgent.Tests/TaskFixture.cs" Line="71" Column="15" />
+      <File FileName="FreeAgent/Client/Client.cs" Line="206" Column="1" />
+      <File FileName="FreeAgent.Tests/BaseFixture.cs" Line="14" Column="23" />
+      <File FileName="FreeAgent/Client/TaskClient.cs" Line="48" Column="1" />
+      <File FileName="FreeAgent/Models/Tasks.cs" Line="18" Column="21" />
+      <File FileName="FreeAgent/Client/ResourceClient.cs" Line="98" Column="9" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="ConsoleRunner" expanded="True">
-            <Node name="References" expanded="True" />
-          </Node>
+          <Node name="Solution Items" expanded="True" />
           <Node name="FreeAgent" expanded="True">
             <Node name="Client" expanded="True">
-              <Node name="BankAccountClient.cs" selected="True" />
+              <Node name="TaskClient.cs" selected="True" />
             </Node>
             <Node name="Extensions" expanded="True" />
             <Node name="Helpers" expanded="True" />
@@ -52,10 +40,28 @@
       <Pad Id="ConnectionManagerPad">
         <State selected="True" />
       </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="FreeAgent.Tests" expanded="True">
+            <Node name="FreeAgent" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="CategoryFixture" expanded="True" />
+                <Node name="InvoiceFixture" expanded="True" />
+                <Node name="TaskFixture" expanded="True">
+                  <Node name="CanCreateSingleTaskForProject" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent.Tests/ResourceFixture.cs" line="33" />
+      <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent/Client/TaskClient.cs" line="48" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace FreeAgent.Tests
         }
 
 
-        public override Contact CreateSigleItemForInsert()
+        public override Contact CreateSingleItemForInsert()
         {
             return new Contact
             {

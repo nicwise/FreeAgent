@@ -28,6 +28,37 @@ namespace FreeAgent
             return wrapper.task;
         }
 
+        public IEnumerable<Task> AllByProject(string projectId)
+        {
+            var request = CreateAllRequest();
+            request.AddParameter("project", projectId, ParameterType.GetOrPost);
+
+            var response = Client.Execute<TasksWrapper>(request);
+
+            if (response != null) return ListFromWrapper(response);
+
+            return null; 
+        }
+
+        public Task Put(Task item, string projectId)
+        {
+            bool isNewRecord = string.IsNullOrEmpty(item.url);
+            var request = CreateBasicRequest(isNewRecord ? Method.POST: Method.PUT, isNewRecord ? "" : "/{id}");
+            request.RequestFormat = DataFormat.Json;
+
+            if (!isNewRecord) request.AddParameter("id", item.Id(), ParameterType.UrlSegment);
+            request.AddBody(WrapperFromSingle(item));         
+
+
+            request.AddParameter("project", projectId, ParameterType.GetOrPost);
+
+            var response = Client.Execute<TaskWrapper>(request);
+
+            if (response != null) return SingleFromWrapper(response);
+
+            return null;
+        }
+
         
         
         

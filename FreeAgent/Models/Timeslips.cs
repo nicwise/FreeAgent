@@ -16,6 +16,7 @@ namespace FreeAgent
 		public string task { get; set; }
 		public string dated_on { get; set; }
 		public double hours { get; set;}
+        public string comment { get; set; }
 
 		
 	}
