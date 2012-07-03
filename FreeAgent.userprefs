@@ -1,15 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent/Client/TaskClient.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent/Client/ExpenseClient.cs">
     <Files>
-      <File FileName="FreeAgent.Tests/UserFixture.cs" Line="36" Column="26" />
-      <File FileName="FreeAgent.Tests/ResourceFixture.cs" Line="19" Column="10" />
-      <File FileName="FreeAgent.Tests/TaskFixture.cs" Line="71" Column="15" />
-      <File FileName="FreeAgent/Client/Client.cs" Line="206" Column="1" />
-      <File FileName="FreeAgent.Tests/BaseFixture.cs" Line="14" Column="23" />
-      <File FileName="FreeAgent/Client/TaskClient.cs" Line="48" Column="1" />
-      <File FileName="FreeAgent/Models/Tasks.cs" Line="18" Column="21" />
-      <File FileName="FreeAgent/Client/ResourceClient.cs" Line="98" Column="9" />
+      <File FileName="FreeAgent.Tests/InvoiceFixture.cs" Line="74" Column="15" />
+      <File FileName="FreeAgent.Tests/ResourceFixture.cs" Line="36" Column="36" />
+      <File FileName="FreeAgent/Client/ResourceClient.cs" Line="31" Column="2" />
+      <File FileName="FreeAgent/Client/TaskClient.cs" Line="49" Column="82" />
+      <File FileName="FreeAgent/Client/ExpenseClient.cs" Line="42" Column="64" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,8 +14,9 @@
           <Node name="Solution Items" expanded="True" />
           <Node name="FreeAgent" expanded="True">
             <Node name="Client" expanded="True">
-              <Node name="TaskClient.cs" selected="True" />
+              <Node name="ExpenseClient.cs" selected="True" />
             </Node>
+            <Node name="Exceptions" expanded="True" />
             <Node name="Extensions" expanded="True" />
             <Node name="Helpers" expanded="True" />
             <Node name="Models" expanded="True" />
@@ -45,11 +43,18 @@
           <Node name="FreeAgent.Tests" expanded="True">
             <Node name="FreeAgent" expanded="True">
               <Node name="Tests" expanded="True">
+                <Node name="BankAccountFixture" expanded="True" />
                 <Node name="CategoryFixture" expanded="True" />
-                <Node name="InvoiceFixture" expanded="True" />
-                <Node name="TaskFixture" expanded="True">
-                  <Node name="CanCreateSingleTaskForProject" selected="True" />
+                <Node name="CompanyFixture" expanded="True" />
+                <Node name="ContactFixture" expanded="True" />
+                <Node name="ExpenseFixture" expanded="True">
+                  <Node name="CanCreateSingle" selected="True" />
                 </Node>
+                <Node name="InvoiceFixture" expanded="True" />
+                <Node name="ProjectFixture" expanded="True" />
+                <Node name="TaskFixture" expanded="True" />
+                <Node name="TimeslipFixture" expanded="True" />
+                <Node name="UserFixture" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -59,8 +64,9 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent.Tests/ResourceFixture.cs" line="33" />
-      <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent/Client/TaskClient.cs" line="48" />
+      <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent.Tests/ExpenseFixture.cs" line="42" />
+      <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent.Tests/ResourceFixture.cs" line="48" />
+      <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent/Client/TaskClient.cs" line="51" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

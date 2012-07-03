@@ -7,15 +7,22 @@ namespace FreeAgent
 		public BaseModel()
 		{
 			url = "";
-			updated_at = "";
-			created_at = "";
-			
 		}
 		public string url { get; set;}
-		public string updated_at { get; set; }
-		public string created_at { get; set; }
-		
 		
 	}
+
+    public class UpdatableModel : BaseModel
+    {
+        public UpdatableModel()
+        {
+
+            updated_at = "";
+            created_at = "";
+            
+        }
+        public string updated_at { get; set; }
+        public string created_at { get; set; }
+    }
 }
 

@@ -8,7 +8,7 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/bank_accounts
 	
-	public class BankAccount : BaseModel
+	public class BankAccount : UpdatableModel, IRemoveUrlOnSerialization
 	{
 		public double opening_balance { get; set; }
 		public string type { get; set; }
@@ -26,7 +26,7 @@ namespace FreeAgent
 		//for paypal
 		public string email { get; set; }
 	
-        public double current_balance { get; set; }
+        //public double current_balance { get; set; }
 
 	}
 	

@@ -99,6 +99,7 @@
     <Compile Include="Client\UserClient.cs" />
     <Compile Include="Client\BankAccountClient.cs" />
     <Compile Include="Client\CategoryClient.cs" />
+    <Compile Include="Client\UrlParsingSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -31,7 +31,7 @@ namespace FreeAgent
         private readonly string _apiKey;
         private readonly string _appsecret;
 
-        private RestClient _restClient;
+        private RestClient _restClient, _restClientModified;
         private AccessToken _currentAccessToken = null;
         private RequestHelper _requestHelper;
 		
@@ -93,8 +93,7 @@ namespace FreeAgent
             _restClient = new RestClient(BaseUrl);
             _restClient.ClearHandlers();
             _restClient.AddHandler("application/json", new JsonDeserializer());	
-			
-			
+
             _requestHelper = new RequestHelper(Version);
             _requestHelper.ApiKey = _apiKey;
             _requestHelper.ApiSecret = _appsecret;
@@ -201,10 +200,12 @@ namespace FreeAgent
             IRestResponse<T> response;
 
 			SetProxy ();
+            Console.WriteLine(_restClient.BuildUri(request));
             response = _restClient.Execute<T>(request);
 
             if (!IsSuccess(response.StatusCode))
             {
+                Console.WriteLine(response.Content);
                 throw new FreeAgentException(response);
             }
 
@@ -215,6 +216,7 @@ namespace FreeAgent
         internal IRestResponse Execute(IRestRequest request)
         {
             IRestResponse response;
+
 
             response = _restClient.Execute(request);
 

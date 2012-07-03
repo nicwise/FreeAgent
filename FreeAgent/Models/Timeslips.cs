@@ -8,7 +8,7 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/timeslips?from_date=?&to_date=?
 	
-	public class Timeslip : BaseModel
+	public class Timeslip : UpdatableModel
 	{
 		
 		public string user { get; set; }

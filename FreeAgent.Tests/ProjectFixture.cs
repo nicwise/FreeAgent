@@ -41,6 +41,9 @@ namespace FreeAgent.Tests
                            name = "project TEST",
                            status = ProjectStatus.Active,
                            budget_units = ProjectBudgetUnits.Days,
+                           hours_per_day = 7.5,
+                           billing_period = ProjectBillingPeriod.Day,
+                            normal_billing_rate = 450,
                            currency = "GBP"
                        };
 

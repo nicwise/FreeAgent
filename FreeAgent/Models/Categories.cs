@@ -7,9 +7,9 @@ namespace FreeAgent
 	//https://dev.freeagent.com/docs/categories
 	
 	//https://api.freeagent.com/v2/categories
-	public class Category
+	public class Category  : BaseModel
 	{
-		public string url { get; set; }
+		//public string url { get; set; }
 		public string description { get; set; }
 		public string nominal_code { get; set; }
 		public bool allowable_for_tax { get; set; }

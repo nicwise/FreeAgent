@@ -8,7 +8,7 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/contacts
 	
-	public class Project : BaseModel
+	public class Project : UpdatableModel, IRemoveUrlOnSerialization
 	{
 		public Project() : base()
 		{
@@ -17,6 +17,7 @@ namespace FreeAgent
 			status = ProjectStatus.Active;
 			budget_units = ProjectBudgetUnits.Hours;
 			currency = "GBP";
+            billing_period = ProjectBillingPeriod.Hour;
 		}
 		public string contact { get; set; }
 		public string name { get; set; }
@@ -48,6 +49,12 @@ namespace FreeAgent
 		public static string Cancelled = "Cancelled";
 		public static string Hidden = "Hidden";
 	}
+
+    public class ProjectBillingPeriod
+    {
+        public static string Hour = "hour";
+        public static string Day = "day";
+    }
 	
 	public class ProjectWrapper
 	{

@@ -37,6 +37,9 @@ namespace FreeAgent.Tests
                 first_name = "Nic TEST",
                 last_name = "Wise",
                 email = "nic.wise@mycompany.com",
+                password = "foobarbaz",
+                password_confirmation = "foobarbaz",
+                opening_mileage = 100,
                 permission_level = (int)UserPermission.Full,
                 role = UserRole.Director
             };

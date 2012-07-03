@@ -8,7 +8,7 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/contacts
 	
-	public class Contact : BaseModel
+	public class Contact : UpdatableModel
 	{
 		
 		public Contact() : base()

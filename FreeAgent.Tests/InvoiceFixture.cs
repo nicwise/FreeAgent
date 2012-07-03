@@ -71,7 +71,7 @@ namespace FreeAgent.Tests
         {
 
             Assert.IsNotNullOrEmpty(item.url);
-            Assert.IsNotEmpty(item.invoice_items);
+            //Assert.IsNotEmpty(item.invoice_items);
 
         }
 

@@ -14,15 +14,26 @@ namespace FreeAgent.Tests
     {
         protected bool ExecuteCanGetList = true, ExecuteCanGetListWithContent = true, ExecuteCanLoadById = true, ExecuteCanCreateSingle = true, ExecuteCanDeleteAndCleanup = true;
 
-        public override void Configure()
-        {
+        protected Func<IEnumerable<TSingle>> GetAll = null;
 
-        }
+
 
         [SetUp]
         public void Setup()
         {
+
             SetupClient();
+        }
+
+        public override void SetupClient()
+        {
+            base.SetupClient();
+            GetAll = ResourceFixtureAll;
+        }
+
+        public IEnumerable<TSingle> ResourceFixtureAll()
+        {
+            return ResourceClient.All();
         }
 
         [Test]
@@ -34,7 +45,7 @@ namespace FreeAgent.Tests
                 return;
             }
 
-            var list = ResourceClient.All();
+            var list = GetAll();
 
             Assert.IsNotNull(list);
 
@@ -49,7 +60,7 @@ namespace FreeAgent.Tests
                 return;
             }
 
-            var list = ResourceClient.All();
+            var list = GetAll();
 
             CheckAllList(list);
 
@@ -99,7 +110,7 @@ namespace FreeAgent.Tests
                 return;
             }
 
-            var items = ResourceClient.All();
+            var items = GetAll();
             CheckAllList(items);
 
             foreach (var item in items)
@@ -135,7 +146,7 @@ namespace FreeAgent.Tests
                 return;
             }
 
-            var items = ResourceClient.All();
+            var items = GetAll();
 
             CheckAllList(items);
             foreach (var item in items)

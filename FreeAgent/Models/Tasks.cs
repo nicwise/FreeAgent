@@ -8,7 +8,7 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/tasks?project=xxx
 	
-	public class Task : BaseModel
+	public class Task : BaseModel, IRemoveUrlOnSerialization
 	{
 		public Task() : base()
         {
@@ -31,9 +31,9 @@ namespace FreeAgent
 
     public class TaskStatus 
     {
-        public static string Active = "active";
-        public static string Completed = "completed";
-        public static string Hidden = "hidden";
+        public static string Active = "Active";
+        public static string Completed = "Completed";
+        public static string Hidden = "Hidden";
     }
 	
 	public class TaskWrapper

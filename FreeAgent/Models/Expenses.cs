@@ -8,7 +8,7 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/contacts
 	
-	public class Expense : BaseModel
+	public class Expense : UpdatableModel, IRemoveUrlOnSerialization
 	{
 		
 

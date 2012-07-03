@@ -26,6 +26,12 @@ namespace FreeAgent.Exceptions
         {
             Response = r;
             StatusCode = r.StatusCode;
+
+        }
+
+        public override string ToString()
+        {
+            return string.Format("[FreeAgentException: StatusCode={0}, Response={1}, Content={2}]", StatusCode, Response, Response.Content);
         }
 
     }

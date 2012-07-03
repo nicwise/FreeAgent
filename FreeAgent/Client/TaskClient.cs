@@ -42,15 +42,11 @@ namespace FreeAgent
 
         public Task Put(Task item, string projectId)
         {
-            bool isNewRecord = string.IsNullOrEmpty(item.url);
-            var request = CreateBasicRequest(isNewRecord ? Method.POST: Method.PUT, isNewRecord ? "" : "/{id}");
-            request.RequestFormat = DataFormat.Json;
 
-            if (!isNewRecord) request.AddParameter("id", item.Id(), ParameterType.UrlSegment);
-            request.AddBody(WrapperFromSingle(item));         
+            var request = CreatePutRequest(item);
+            request.Resource += "?project={project}";
 
-
-            request.AddParameter("project", projectId, ParameterType.GetOrPost);
+            request.AddParameter("project",  projectId, ParameterType.UrlSegment);
 
             var response = Client.Execute<TaskWrapper>(request);
 
