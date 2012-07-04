@@ -11,7 +11,10 @@ namespace FreeAgent
 	public class Expense : UpdatableModel, IRemoveUrlOnSerialization
 	{
 		
-
+        public Expense()
+        {
+            recurring = false;
+        }
 	
 		public string user { get; set;}
 		public string project { get; set;}
