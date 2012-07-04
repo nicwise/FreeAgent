@@ -33,6 +33,10 @@
     <Reference Include="nunit.framework">
       <HintPath>..\Lib\nunit\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=102.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\net35\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

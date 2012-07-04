@@ -36,7 +36,7 @@ namespace FreeAgent.Tests
                 url = "",
                 opening_balance = 100,
                 type = BankAccountType.StandardBankAccount,
-                name = "Bank Account TEST",
+                name = "Bank Account TEST " + DateTime.Now.ToString(),
                 bank_name = "Test Bank"
 
 
