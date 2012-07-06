@@ -30,6 +30,7 @@ namespace FreeAgent
         {
             return All((r) => {
                 r.AddParameter("project", projectId, ParameterType.GetOrPost);
+                r.AddParameter("nested_invoice_items", "true", ParameterType.GetOrPost);
             });
         }
 
@@ -37,6 +38,7 @@ namespace FreeAgent
         {
             return All((r) => {
                 r.AddParameter("contact", contactId, ParameterType.GetOrPost);
+                r.AddParameter("nested_invoice_items", "true", ParameterType.GetOrPost);
             });
         }
 
@@ -44,6 +46,7 @@ namespace FreeAgent
         {
             return All((r) => {
                 r.AddParameter("view", filter, ParameterType.GetOrPost);
+                r.AddParameter("nested_invoice_items", "true", ParameterType.GetOrPost);
             });
         }
 
