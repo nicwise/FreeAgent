@@ -10,7 +10,11 @@ namespace FreeAgent.Tests
     [TestFixture]
     public class InvoiceFixture : ResourceFixture<InvoiceWrapper, InvoicesWrapper, Invoice>
     {
-
+        public override void Configure()
+        {
+            base.Configure();
+            ExecuteCanGetListWithContent = false;
+        }
         [Test]
         public void CanGetListWithSingleCall()
         {
@@ -71,7 +75,7 @@ namespace FreeAgent.Tests
         {
 
             Assert.IsNotNullOrEmpty(item.url);
-            //Assert.IsNotEmpty(item.invoice_items);
+            Assert.IsNotEmpty(item.invoice_items);
 
         }
 
