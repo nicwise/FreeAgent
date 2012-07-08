@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using RestSharp;
-using FreeAgent.Models;
 
 namespace FreeAgent
 {
@@ -16,7 +15,7 @@ namespace FreeAgent
         {
             return new ExpenseWrapper { expense = single };
         }
-        public override IEnumerable<Expense> ListFromWrapper(ExpensesWrapper wrapper)
+        public override List<Expense> ListFromWrapper(ExpensesWrapper wrapper)
         {
             return wrapper.expenses;
         }
@@ -39,7 +38,7 @@ namespace FreeAgent
         /// To_date.
         /// </param>
         /// 
-        public IEnumerable<Expense> All(string view = "", string from_date = "", string to_date = "")
+        public List<Expense> All(string view = "", string from_date = "", string to_date = "")
         {
             return All((r) => {
                 if (!string.IsNullOrEmpty(from_date))

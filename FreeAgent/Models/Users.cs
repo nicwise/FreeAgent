@@ -19,7 +19,6 @@ namespace FreeAgent
         public string password { get; set; }
         public string password_confirmation { get; set; }
 
-
 	}
 	
 	public class UserWrapper

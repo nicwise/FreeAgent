@@ -29,6 +29,9 @@ namespace FreeAgent
 		public string currency { get; set; }
 		public string ec_status { get; set; }
 		public string written_off_date { get; set; }
+        public double net_value { get; set; }
+        public double sales_tax_value {get; set; }
+        public string comments { get; set; }
 		public List<InvoiceItem> invoice_items { get; set; }
 	}
 	

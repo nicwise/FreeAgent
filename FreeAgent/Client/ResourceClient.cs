@@ -2,7 +2,6 @@ using System;
 using System.Net;
 using FreeAgent.Exceptions;
 using FreeAgent.Helpers;
-using FreeAgent.Models;
 using System.Collections.Generic;
 using RestSharp;
 
@@ -23,12 +22,12 @@ namespace FreeAgent
 
 
         public abstract TSingleWrapper WrapperFromSingle(TSingle single);
-        public abstract IEnumerable<TSingle> ListFromWrapper(TListWrapper wrapper);
+        public abstract List<TSingle> ListFromWrapper(TListWrapper wrapper);
         public abstract TSingle SingleFromWrapper(TSingleWrapper wrapper);
 
 
 
-        public IEnumerable<TSingle> All(Action<RestRequest> customizeRequest = null)
+        public List<TSingle> All(Action<RestRequest> customizeRequest = null)
         {
             var request = CreateAllRequest();
 

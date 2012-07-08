@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using RestSharp;
-using FreeAgent.Models;
+
 
 namespace FreeAgent
 {
@@ -12,11 +12,16 @@ namespace FreeAgent
 
         public override string ResouceName { get { return "invoices"; } } 
 
+        public override void CustomizeAllRequest(RestRequest request)
+        {
+            request.AddParameter("nested_invoice_items", "true", ParameterType.GetOrPost);
+        }
+
         public override InvoiceWrapper WrapperFromSingle(Invoice single)
         {
             return new InvoiceWrapper { invoice = single };
         }
-        public override IEnumerable<Invoice> ListFromWrapper(InvoicesWrapper wrapper)
+        public override List<Invoice> ListFromWrapper(InvoicesWrapper wrapper)
         {
             return wrapper.invoices;
         }
@@ -26,21 +31,21 @@ namespace FreeAgent
             return wrapper.invoice;
         }
 
-        public IEnumerable<Invoice> AllForProject(string projectId)
+        public List<Invoice> AllForProject(string projectId)
         {
             return All((r) => {
                 r.AddParameter("project", projectId, ParameterType.GetOrPost);
             });
         }
 
-        public IEnumerable<Invoice> AllForContact(string contactId)
+        public List<Invoice> AllForContact(string contactId)
         {
             return All((r) => {
                 r.AddParameter("contact", contactId, ParameterType.GetOrPost);
             });
         }
 
-        public IEnumerable<Invoice> AllWithFilter(string filter)
+        public List<Invoice> AllWithFilter(string filter)
         {
             return All((r) => {
                 r.AddParameter("view", filter, ParameterType.GetOrPost);

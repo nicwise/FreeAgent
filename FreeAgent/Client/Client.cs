@@ -5,7 +5,6 @@ using FreeAgent.Authenticators;
 using FreeAgent.Exceptions;
 using FreeAgent.Extensions;
 using FreeAgent.Helpers;
-using FreeAgent.Models;
 using RestSharp;
 using RestSharp.Deserializers;
 
@@ -200,13 +199,18 @@ namespace FreeAgent
             IRestResponse<T> response;
 
 			SetProxy ();
-            Console.WriteLine(_restClient.BuildUri(request));
+            //Console.WriteLine(_restClient.BuildUri(request));
             response = _restClient.Execute<T>(request);
 
             if (!IsSuccess(response.StatusCode))
             {
                 Console.WriteLine(response.Content);
                 throw new FreeAgentException(response);
+            }
+
+            if (response.Data == null)
+            {
+                Console.WriteLine("{0} returned null", _restClient.BuildUri(request));
             }
 
 

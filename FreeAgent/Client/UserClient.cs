@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using RestSharp;
-using FreeAgent.Models;
+
 
 namespace FreeAgent
 {
@@ -18,7 +18,7 @@ namespace FreeAgent
         {
             return new UserWrapper { user = single };
         }
-        public override IEnumerable<User> ListFromWrapper(UsersWrapper wrapper)
+        public override List<User> ListFromWrapper(UsersWrapper wrapper)
         {
             return wrapper.users;
         }

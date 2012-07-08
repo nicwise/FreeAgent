@@ -26,7 +26,7 @@ namespace FreeAgent
 		//for paypal
 		public string email { get; set; }
 	
-        //public double current_balance { get; set; }
+        public double current_balance { get; set; }
 
 	}
 	

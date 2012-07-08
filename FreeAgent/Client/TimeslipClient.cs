@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using RestSharp;
-using FreeAgent.Models;
+
 
 namespace FreeAgent
 {
@@ -18,7 +18,7 @@ namespace FreeAgent
         {
             return new TimeslipWrapper { timeslip = single };
         }
-        public override IEnumerable<Timeslip> ListFromWrapper(TimeslipsWrapper wrapper)
+        public override List<Timeslip> ListFromWrapper(TimeslipsWrapper wrapper)
         {
             return wrapper.timeslips;
         }
@@ -28,11 +28,23 @@ namespace FreeAgent
             return wrapper.timeslip;
         }
 
-        public IEnumerable<Timeslip> All(string from_date, string to_date)
+        public List<Timeslip> All(string from_date, string to_date)
         {
             return All((r) => {
                 r.AddParameter("from_date", from_date, ParameterType.GetOrPost);
                 r.AddParameter("to_date", to_date, ParameterType.GetOrPost);
+            });
+
+        }
+
+        public List<Timeslip> AllRecent()
+        {
+            DateTime now = DateTime.Now;
+
+
+            return All((r) => {
+                r.AddParameter("from_date", now.AddDays(-20).ModelDate(), ParameterType.GetOrPost);
+                r.AddParameter("to_date", now.ModelDate(), ParameterType.GetOrPost);
             });
 
         }

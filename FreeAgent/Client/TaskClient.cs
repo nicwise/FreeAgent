@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using RestSharp;
-using FreeAgent.Models;
+
 
 namespace FreeAgent
 {
@@ -18,7 +18,7 @@ namespace FreeAgent
         {
             return new TaskWrapper { task = single };
         }
-        public override IEnumerable<Task> ListFromWrapper(TasksWrapper wrapper)
+        public override List<Task> ListFromWrapper(TasksWrapper wrapper)
         {
             return wrapper.tasks;
         }
@@ -28,7 +28,7 @@ namespace FreeAgent
             return wrapper.task;
         }
 
-        public IEnumerable<Task> AllByProject(string projectId)
+        public List<Task> AllByProject(string projectId)
         {
             var request = CreateAllRequest();
             request.AddParameter("project", projectId, ParameterType.GetOrPost);

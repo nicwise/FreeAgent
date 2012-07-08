@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using FreeAgent.Models;
 using RestSharp;
 using FreeAgent.Authenticators;
 using System;

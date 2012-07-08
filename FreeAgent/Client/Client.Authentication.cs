@@ -1,5 +1,4 @@
-﻿using FreeAgent.Models;
-using RestSharp;
+﻿using RestSharp;
 using FreeAgent.Authenticators;
 using System;
 

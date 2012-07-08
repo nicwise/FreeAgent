@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using RestSharp;
-using FreeAgent.Models;
+
 
 namespace FreeAgent
 {
@@ -22,7 +22,7 @@ namespace FreeAgent
         {
             return new ContactWrapper { contact = single };
         }
-        public override IEnumerable<Contact> ListFromWrapper(ContactsWrapper wrapper)
+        public override List<Contact> ListFromWrapper(ContactsWrapper wrapper)
         {
             return wrapper.contacts;
         }

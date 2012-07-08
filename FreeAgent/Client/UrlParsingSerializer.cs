@@ -38,7 +38,7 @@ namespace FreeAgent
                     .Replace(",\"project\":\"\"}", "}")
                     .Replace(",\"project\":null}", "}");
 
-            Console.WriteLine(json);
+            //Console.WriteLine(json);
             return json;
         }
      

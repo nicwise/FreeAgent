@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using RestSharp;
-using FreeAgent.Models;
+
 
 namespace FreeAgent
 {
@@ -18,7 +18,7 @@ namespace FreeAgent
         {
             return new BankAccountWrapper { bank_account = single };
         }
-        public override IEnumerable<BankAccount> ListFromWrapper(BankAccountsWrapper wrapper)
+        public override List<BankAccount> ListFromWrapper(BankAccountsWrapper wrapper)
         {
             return wrapper.bank_accounts;
         }

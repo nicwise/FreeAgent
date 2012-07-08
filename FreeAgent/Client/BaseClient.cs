@@ -1,6 +1,6 @@
 using System;
 using FreeAgent.Helpers;
-using FreeAgent.Models;
+
 using System.Collections.Generic;
 using RestSharp;
 

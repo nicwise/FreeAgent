@@ -34,44 +34,52 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="RestSharp.MonoTouch">
-      <HintPath>..\Lib\monotouch\RestSharp.MonoTouch.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="..\FreeAgent\Authenticators\OAuthAuthenticator.cs">
-      <Link>Authenticators\OAuthAuthenticator.cs</Link>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="..\FreeAgent\Client\Client.Authentication.cs">
-      <Link>Client\Client.Authentication.cs</Link>
-    </Compile>
-    <Compile Include="..\FreeAgent\Client\Client.Company.cs">
-      <Link>Client\Client.Company.cs</Link>
-    </Compile>
-    <Compile Include="..\FreeAgent\Client\Client.cs">
-      <Link>Client\Client.cs</Link>
-    </Compile>
+    <Compile Include="..\FreeAgent\Client\Client.cs" />
     <Compile Include="..\FreeAgent\Exceptions\FreeAgentException.cs">
-      <Link>Exceptions\FreeAgentException.cs</Link>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="..\FreeAgent\Extensions\RestClientExtensions.cs">
-      <Link>Extensions\RestClientExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\FreeAgent\Extensions\StringExtensions.cs">
-      <Link>Extensions\StringExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\FreeAgent\Helpers\RequestHelper.cs">
-      <Link>Helpers\RequestHelper.cs</Link>
-    </Compile>
-    <Compile Include="..\FreeAgent\Models\AccessToken.cs">
-      <Link>Models\AccessToken.cs</Link>
-    </Compile>
-    <Compile Include="..\FreeAgent\Models\Company.cs">
-      <Link>Models\Company.cs</Link>
-    </Compile>
-    <Compile Include="..\FreeAgent\Properties\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
-    </Compile>
+    <Compile Include="..\FreeAgent\Extensions\RestClientExtensions.cs" />
+    <Compile Include="..\FreeAgent\Extensions\StringExtensions.cs" />
+    <Compile Include="..\FreeAgent\Helpers\RequestHelper.cs" />
+    <Compile Include="..\FreeAgent\Models\Company.cs" />
+    <Compile Include="..\FreeAgent\Properties\AssemblyInfo.cs" />
+    <Compile Include="..\FreeAgent\Models\AccessToken.cs" />
+    <Compile Include="..\FreeAgent\Models\Categories.cs" />
+    <Compile Include="..\FreeAgent\Models\Users.cs" />
+    <Compile Include="..\FreeAgent\Models\Tasks.cs" />
+    <Compile Include="..\FreeAgent\Models\Timeslips.cs" />
+    <Compile Include="..\FreeAgent\Models\BankAccounts.cs" />
+    <Compile Include="..\FreeAgent\Models\Contacts.cs" />
+    <Compile Include="..\FreeAgent\Models\Projects.cs" />
+    <Compile Include="..\FreeAgent\Models\Invoices.cs" />
+    <Compile Include="..\FreeAgent\Models\Expenses.cs" />
+    <Compile Include="..\FreeAgent\Client\BaseClient.cs" />
+    <Compile Include="..\FreeAgent\Models\BaseModel.cs" />
+    <Compile Include="..\FreeAgent\Extensions\ModelExtensions.cs" />
+    <Compile Include="..\FreeAgent\Client\ResourceClient.cs" />
+    <Compile Include="..\FreeAgent\Client\CompanyClient.cs" />
+    <Compile Include="..\FreeAgent\Client\ProjectClient.cs" />
+    <Compile Include="..\FreeAgent\Client\ContactClient.cs" />
+    <Compile Include="..\FreeAgent\Client\ExpenseClient.cs" />
+    <Compile Include="..\FreeAgent\Client\InvoiceClient.cs" />
+    <Compile Include="..\FreeAgent\Client\TaskClient.cs" />
+    <Compile Include="..\FreeAgent\Client\TimeslipClient.cs" />
+    <Compile Include="..\FreeAgent\Client\UserClient.cs" />
+    <Compile Include="..\FreeAgent\Client\BankAccountClient.cs" />
+    <Compile Include="..\FreeAgent\Client\CategoryClient.cs" />
+    <Compile Include="..\FreeAgent\Client\UrlParsingSerializer.cs" />
+    <Compile Include="..\FreeAgent\Client\Client.Authentication.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RestSharp\RestSharp.MonoTouch\RestSharp.MonoTouch.csproj">
+      <Project>{E9A9D1C5-4E06-4D31-9809-A97188C70B2C}</Project>
+      <Name>RestSharp.MonoTouch</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
