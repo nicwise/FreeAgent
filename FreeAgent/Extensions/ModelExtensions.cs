@@ -53,6 +53,16 @@ namespace FreeAgent
 			}
 		}
 
+        public static string UrlId(this string id, string resourcetype)
+        {
+            return "/v2/{0}/{1}".Fmt(resourcetype, id);
+        }
+
+        public static string UrlId(this int id, string resourcetype)
+        {
+            return "/v2/{0}/{1}".Fmt(resourcetype, id.ToString());
+        }
+
         public static string ModelDateTime(this DateTime currentdate)
         {
             return currentdate.ToString("s");
@@ -72,6 +82,8 @@ namespace FreeAgent
         {
             return (UserPermission)user.permission_level;
         }
+
+       
 	}
 }
 

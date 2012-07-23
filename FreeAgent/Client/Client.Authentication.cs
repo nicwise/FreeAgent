@@ -48,9 +48,10 @@ namespace FreeAgent
                 token.expires_in = response.expires_in;
 
                 CurrentAccessToken = token;
+                return CurrentAccessToken;
             }
 
-            return CurrentAccessToken;
+            return null;
         }
     }
 }

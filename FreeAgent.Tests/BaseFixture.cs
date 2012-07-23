@@ -21,6 +21,7 @@ namespace FreeAgent.Tests
             Configure();
 
             FreeAgentClient.UseSandbox = true;
+            FreeAgentClient.Proxy = new WebProxy("127.0.0.1", 8888);
 
             Client = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret);
 

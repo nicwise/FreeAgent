@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using FreeAgent.Models;
+
 using NUnit.Framework;
 
 namespace FreeAgent.Tests

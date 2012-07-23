@@ -163,6 +163,7 @@ namespace FreeAgent
         public UserClient User = null;
         public BankAccountClient BankAccount = null;
         public CategoryClient Categories = null;
+        public BankTransactionClient BankTransaction = null;
 		
 		private void SetupClients()
 		{
@@ -176,6 +177,7 @@ namespace FreeAgent
             User = new UserClient(this);
             BankAccount = new BankAccountClient(this);
             Categories = new CategoryClient(this);
+            BankTransaction = new BankTransactionClient(this);
 		}
   
 

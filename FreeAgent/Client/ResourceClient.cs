@@ -102,7 +102,7 @@ namespace FreeAgent
             bool isNewRecord = string.IsNullOrEmpty(item.url);
             var request = CreateBasicRequest(isNewRecord ? Method.POST: Method.PUT, isNewRecord ? "" : "/{id}");
 
-            if (item is IRemoveUrlOnSerialization) 
+            if (item is IRemoveUrlOnSerialization || item is IRemoveRecurringOnSerialization) 
             {
                 request.JsonSerializer = new UrlParsingJsonSerializer();  
             }

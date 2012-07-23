@@ -52,7 +52,7 @@ namespace FreeAgent.Tests
                 description = "Expense TEST",
                 dated_on = DateTime.Now.ModelDate(),
                 category = cat.UrlId(),
-                recurring = false
+                //recurring = false
 
 
             };
