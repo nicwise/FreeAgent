@@ -25,7 +25,9 @@ namespace FreeAgent
 		public string first_name { get; set; }
 		public string last_name { get; set; }
 		public string email { get; set; }
+        public string billing_email { get; set; }
 		public string phone_number { get; set; }
+        public string mobile { get; set; }
 		public string address1 { get; set; }
 		public string town { get; set; }
 		public string region { get; set; }
