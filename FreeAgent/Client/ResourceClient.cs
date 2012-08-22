@@ -25,17 +25,46 @@ namespace FreeAgent
         public abstract List<TSingle> ListFromWrapper(TListWrapper wrapper);
         public abstract TSingle SingleFromWrapper(TSingleWrapper wrapper);
 
-
+        const int PageSize = 50;
 
         public List<TSingle> All(Action<RestRequest> customizeRequest = null)
         {
-            var request = CreateAllRequest();
+            int page = 1;
 
-            if (customizeRequest != null) customizeRequest(request);
 
-            var response = Client.Execute<TListWrapper>(request);
 
-            if (response != null) return ListFromWrapper(response);
+            List<TSingle> allItems = new List<TSingle>();
+
+            while(true)
+            {
+                var request = CreateAllRequest();
+                if (customizeRequest != null) customizeRequest(request);
+
+                AddPaging(request, page);
+
+
+                var response = Client.Execute<TListWrapper>(request);
+
+
+                if (response != null) 
+                {
+                    var newItems = ListFromWrapper(response);
+                    allItems.AddRange(newItems);
+
+                    if (newItems.Count < PageSize) return allItems;
+
+                } else if (response == null && page == 1)
+                {
+                    return null;
+                } else 
+                {
+                    return allItems;
+                }
+
+                page++;
+            }
+
+
 
             return null;    
         }
@@ -86,6 +115,7 @@ namespace FreeAgent
         {
             var request = CreateBasicRequest(Method.GET);
             CustomizeAllRequest(request);
+
             return request;
         }
         
@@ -122,6 +152,13 @@ namespace FreeAgent
             request.AddParameter("id", id, ParameterType.UrlSegment);
                      
             return request;
+        }
+
+        public virtual void AddPaging(RestRequest request, int page = 1)
+        {
+            request.AddParameter("page", page, ParameterType.GetOrPost);
+            request.AddParameter("per_page", PageSize, ParameterType.GetOrPost);
+
         }
 
 
