@@ -49,6 +49,7 @@
     <Compile Include="CompanyFixture.cs" />
     <Compile Include="ContactFixture.cs" />
     <Compile Include="KeyStorage.cs" />
+    <Compile Include="MultiConnectTestFixture.cs" />
     <Compile Include="ProjectFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceFixture.cs" />
