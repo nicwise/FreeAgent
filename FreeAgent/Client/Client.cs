@@ -87,6 +87,8 @@ namespace FreeAgent
 
         }
 
+
+
         private void LoadClient()
         {
             _restClient = new RestClient(BaseUrl);

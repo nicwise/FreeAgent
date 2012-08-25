@@ -34,9 +34,6 @@ namespace FreeAgent.Tests
 
             FreeAgentClient.UseSandbox = true;
             FreeAgentClient.Proxy = new WebProxy("127.0.0.1", 8888);
-
-            Client = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret);
-
             var sandbox_bttest_token = new AccessToken
             {
                 access_token = "",
@@ -44,34 +41,44 @@ namespace FreeAgent.Tests
                 token_type = "bearer"
             };
 
-            Client.CurrentAccessToken = sandbox_bttest_token;
 
-            try
+
+            using (var Client = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret))
             {
-                var co = Client.Company.Single();
-            } catch
-            {
-                
+
+
+
+                Client.CurrentAccessToken = sandbox_bttest_token;
+
+                try
+                {
+                    var co = Client.Company.Single();
+                } catch
+                {
+                    
+                }
+
+
             }
-
 
             FreeAgentClient.UseSandbox = false;
-            LiveClient = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret);
-
-
-
-            LiveClient.CurrentAccessToken = sandbox_bttest_token;
-
-            try
+            using (var LiveClient = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret))
             {
-                var co = LiveClient.Company.Single();
-            } catch
-            {
-                
+
+
+
+                LiveClient.CurrentAccessToken = sandbox_bttest_token;
+
+                try
+                {
+                    var co = LiveClient.Company.Single();
+                } catch
+                {
+                    
+                }
+
+
             }
-
-
-
             
             Assert.IsTrue(true);
 

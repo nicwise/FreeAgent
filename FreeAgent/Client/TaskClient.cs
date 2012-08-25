@@ -30,14 +30,11 @@ namespace FreeAgent
 
         public List<Task> AllByProject(string projectId)
         {
-            var request = CreateAllRequest();
-            request.AddParameter("project", projectId, ParameterType.GetOrPost);
+            return All(delegate (RestRequest req) {
+                req.AddParameter("project", projectId, ParameterType.GetOrPost);
+            });
 
-            var response = Client.Execute<TasksWrapper>(request);
-
-            if (response != null) return ListFromWrapper(response);
-
-            return null; 
+        
         }
 
         public Task Put(Task item, string projectId)

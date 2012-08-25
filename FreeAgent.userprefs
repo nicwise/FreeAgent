@@ -1,17 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent.Tests/BaseFixture.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent/Client/Client.cs">
     <Files>
       <File FileName="FreeAgent.Tests/InvoiceFixture.cs" Line="74" Column="15" />
       <File FileName="FreeAgent.Tests/ResourceFixture.cs" Line="30" Column="21" />
       <File FileName="FreeAgent/Client/ResourceClient.cs" Line="10" Column="90" />
-      <File FileName="FreeAgent/Client/TaskClient.cs" Line="49" Column="82" />
+      <File FileName="FreeAgent/Client/TaskClient.cs" Line="49" Column="1" />
       <File FileName="FreeAgent/Client/UrlParsingSerializer.cs" Line="55" Column="6" />
       <File FileName="FreeAgent.Tests/CompanyFixture.cs" Line="6" Column="1" />
       <File FileName="FreeAgent.Tests/ExpenseFixture.cs" Line="11" Column="43" />
       <File FileName="FreeAgent.Tests/BaseFixture.cs" Line="28" Column="42" />
       <File FileName="FreeAgent/Models/Expenses.cs" Line="57" Column="1" />
       <File FileName="FreeAgent/Client/BaseClient.cs" Line="9" Column="2" />
+      <File FileName="FreeAgent/Client/Client.cs" Line="14" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,12 +20,12 @@
           <Node name="FreeAgent" expanded="True">
             <Node name="References" expanded="True" />
             <Node name="Authenticators" expanded="True" />
-            <Node name="Client" expanded="True" />
+            <Node name="Client" expanded="True">
+              <Node name="Client.cs" selected="True" />
+            </Node>
             <Node name="Models" expanded="True" />
           </Node>
-          <Node name="FreeAgent.Tests" expanded="True">
-            <Node name="BaseFixture.cs" selected="True" />
-          </Node>
+          <Node name="FreeAgent.Tests" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -46,7 +47,8 @@
           <Node name="FreeAgent.Tests" expanded="True">
             <Node name="FreeAgent" expanded="True">
               <Node name="Tests" expanded="True">
-                <Node name="ExpenseFixture" expanded="True">
+                <Node name="ExpenseFixture" expanded="True" />
+                <Node name="MultiConnectTestFixture" expanded="True">
                   <Node name="CanGetList" selected="True" />
                 </Node>
               </Node>

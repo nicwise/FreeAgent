@@ -41,8 +41,27 @@ namespace FreeAgent
             json = Remove(json, "\"recurring_end_date\":null");
 
             json = Remove(json, "\"reclaim_mileage_rate\":-1.0");
-            json = Remove(json, "\"sales_tax_rate\":-2.0");
+
+            if (json.Contains("\"sales_tax_rate\":-2"))
+            {
+                json = Remove(json, "\"sales_tax_rate\":-2.0");
+                json = Remove(json, "\"sales_tax_rate\":-2");
+
+                json = Remove(json, "\"manual_sales_tax_amount\":0");
+            }
+
+            //manual amount
+            if (json.Contains("\"sales_tax_rate\":-3"))
+            {
+                json = Remove(json, "\"sales_tax_rate\":-3.0");
+                json = Remove(json, "\"sales_tax_rate\":-3");
+
+            }
+            json = Remove(json, "\"manual_sales_tax_amount\":-1");
+
+            json = Remove(json, "\"mileage\":0");
             json = Remove(json, "\"ec_status\":0");
+
 
                
 
@@ -52,7 +71,12 @@ namespace FreeAgent
 
         private string Remove(string source, string match)
         {
-            return source.Replace("," + match + "}", "}").Replace(match + ",", "");
+            return source.Replace("," + match + "}",  "}").Replace(match + ",", "");
+        }
+
+        private string Replace(string source, string match, string replacement)
+        {
+            return source.Replace("," + match + "}",  "," + replacement + "}").Replace(match + ",", replacement + ",");
         }
      
         ///
