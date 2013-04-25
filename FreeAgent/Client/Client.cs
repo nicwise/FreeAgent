@@ -108,7 +108,7 @@ namespace FreeAgent
 			
 		}
 		
-		private void SetProxy()
+		public void SetProxy()
 		{
 			_restClient.Proxy = Proxy;
 		}

@@ -41,6 +41,7 @@ namespace FreeAgent
             json = Remove(json, "\"recurring_end_date\":null");
 
             json = Remove(json, "\"reclaim_mileage_rate\":-1.0");
+			json = Remove(json, "\"reclaim_mileage_rate\":-1");
 
             if (json.Contains("\"sales_tax_rate\":-2"))
             {
@@ -65,7 +66,7 @@ namespace FreeAgent
 
                
 
-            //Console.WriteLine("post: " + json);
+            //Debug.WriteLine("post: " + json);
             return json;
         }
 
