@@ -43,10 +43,10 @@ namespace FreeAgent.Tests
 
 
 
-            using (var Client = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret))
+            
             {
 
-
+				var Client = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret);
 
                 Client.CurrentAccessToken = sandbox_bttest_token;
 
@@ -58,14 +58,13 @@ namespace FreeAgent.Tests
                     
                 }
 
-
-            }
+			}
+            
 
             FreeAgentClient.UseSandbox = false;
-            using (var LiveClient = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret))
-            {
+           
 
-
+				var LiveClient = new FreeAgentClient(KeyStorage.AppKey, KeyStorage.AppSecret);
 
                 LiveClient.CurrentAccessToken = sandbox_bttest_token;
 
@@ -78,7 +77,7 @@ namespace FreeAgent.Tests
                 }
 
 
-            }
+            
             
             Assert.IsTrue(true);
 
