@@ -60,6 +60,7 @@
     <Compile Include="TaskFixture.cs" />
     <Compile Include="TimeslipFixture.cs" />
     <Compile Include="ExpenseFixture.cs" />
+    <Compile Include="BillFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FreeAgent\FreeAgent.csproj">

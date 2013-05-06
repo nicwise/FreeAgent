@@ -33,7 +33,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = FreeAgent\FreeAgent.csproj
+		StartupItem = FreeAgent.Tests\FreeAgent.Tests.csproj
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = DropNet.vsmdi

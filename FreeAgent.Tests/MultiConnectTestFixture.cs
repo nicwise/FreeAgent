@@ -33,7 +33,7 @@ namespace FreeAgent.Tests
 
 
             FreeAgentClient.UseSandbox = true;
-            FreeAgentClient.Proxy = new WebProxy("127.0.0.1", 8888);
+            //FreeAgentClient.Proxy = new WebProxy("127.0.0.1", 8888);
             var sandbox_bttest_token = new AccessToken
             {
                 access_token = "",

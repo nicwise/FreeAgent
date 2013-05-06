@@ -1,33 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent.Tests/KeyStorage.cs">
     <Files>
-      <File FileName="FreeAgent.Tests/InvoiceFixture.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent.Tests/ResourceFixture.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent/Client/ResourceClient.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent/Client/TaskClient.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent/Client/UrlParsingSerializer.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent.Tests/CompanyFixture.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent.Tests/ExpenseFixture.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent.Tests/BaseFixture.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent/Client/BaseClient.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent/Models/Bills.cs" Line="34" Column="13" />
-      <File FileName="FreeAgent/Client/BillClient.cs" Line="18" Column="51" />
-      <File FileName="FreeAgent.Tests/MultiConnectTestFixture.cs" Line="44" Column="4" />
-      <File FileName="FreeAgent/App.config" Line="1" Column="1" />
-      <File FileName="FreeAgent.Tests/readme.txt" Line="1" Column="1" />
-      <File FileName="FreeAgent.Tests/KeyStorage.cs" Line="1" Column="1" />
+      <File FileName="FreeAgent.Tests/BaseFixture.cs" Line="23" Column="39" />
+      <File FileName="FreeAgent/Models/Bills.cs" Line="1" Column="1" />
+      <File FileName="FreeAgent/Client/BillClient.cs" Line="1" Column="1" />
+      <File FileName="FreeAgent.Tests/KeyStorage.cs" Line="21" Column="6" />
+      <File FileName="FreeAgent.Tests/MultiConnectTestFixture.cs" Line="35" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="FreeAgent" expanded="True" selected="True">
+          <Node name="FreeAgent" expanded="True">
             <Node name="References" expanded="True" />
             <Node name="Authenticators" expanded="True" />
             <Node name="Client" expanded="True" />
             <Node name="Models" expanded="True" />
           </Node>
-          <Node name="FreeAgent.Tests" expanded="True" />
+          <Node name="FreeAgent.Tests" expanded="True">
+            <Node name="KeyStorage.cs" selected="True" />
+          </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
@@ -41,11 +33,11 @@
           <Value>request</Value>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
-      </Pad>
       <Pad Id="ConnectionManagerPad">
         <State selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
@@ -55,6 +47,7 @@
       <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent.Tests/ResourceFixture.cs" line="48" column="1" />
       <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent/Client/TaskClient.cs" line="51" column="1" />
       <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent.Tests/ExpenseFixture.cs" line="21" column="1" />
+      <Breakpoint file="/Users/nic/code/git/GitHub/FreeAgent/FreeAgent.Tests/BaseFixture.cs" line="23" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

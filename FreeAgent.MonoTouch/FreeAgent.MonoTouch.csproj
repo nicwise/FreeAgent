@@ -75,6 +75,12 @@
     <Compile Include="..\FreeAgent\Client\CategoryClient.cs" />
     <Compile Include="..\FreeAgent\Client\UrlParsingSerializer.cs" />
     <Compile Include="..\FreeAgent\Client\Client.Authentication.cs" />
+    <Compile Include="..\FreeAgent\Client\BillClient.cs">
+      <Link>BillClient.cs</Link>
+    </Compile>
+    <Compile Include="..\FreeAgent\Models\Bills.cs">
+      <Link>Bills.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\RestSharp\RestSharp.MonoTouch\RestSharp.MonoTouch.csproj">

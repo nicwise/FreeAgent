@@ -29,7 +29,7 @@ namespace FreeAgent
 		public double sales_tax_rate { get; set; }
 		public double manual_sales_tax_amount { get; set; }
 		public double second_sales_tax_rate { get; set; }
-		public bool recurring { get; set; }
+		public string recurring { get; set; }
 		public string recurring_end_date { get; set; }
 		public int ec_status { get; set; }
 		public string status { get; set; }

@@ -49,6 +49,8 @@ namespace FreeAgent
                 json = Remove(json, "\"sales_tax_rate\":-2");
 
                 json = Remove(json, "\"manual_sales_tax_amount\":0");
+				json = Remove (json, "\"sales_tax_value\":0.0");
+				json = Remove (json, "\"sales_tax_value\":0");
             }
 
             //manual amount

@@ -38,7 +38,7 @@ namespace FreeAgent
 		/// To_date.
 		/// </param>
 		/// 
-		public List<Bill> All(string view = "", string from_date = "", string to_date = "")
+		public List<Bill> All(string from_date = "", string to_date = "")
 		{
 			return All((r) => {
 				if (!string.IsNullOrEmpty(from_date))
@@ -48,10 +48,6 @@ namespace FreeAgent
 				if (!string.IsNullOrEmpty(to_date))
 				{
 					r.AddParameter("to_date", to_date, ParameterType.GetOrPost);
-				}
-				if (!string.IsNullOrEmpty("view"))
-				{
-					r.AddParameter("view", view, ParameterType.GetOrPost);
 				}
 			});
 			
