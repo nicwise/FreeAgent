@@ -102,6 +102,8 @@
     <Compile Include="Client\UrlParsingSerializer.cs" />
     <Compile Include="Client\BillClient.cs" />
     <Compile Include="Models\Bills.cs" />
+    <Compile Include="Models\Accounting.cs" />
+    <Compile Include="Client\AccountingClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

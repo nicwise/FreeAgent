@@ -1,12 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent.Tests/KeyStorage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FreeAgent/Client/Client.cs">
     <Files>
-      <File FileName="FreeAgent.Tests/BaseFixture.cs" Line="23" Column="39" />
+      <File FileName="FreeAgent.Tests/BaseFixture.cs" Line="1" Column="1" />
       <File FileName="FreeAgent/Models/Bills.cs" Line="1" Column="1" />
       <File FileName="FreeAgent/Client/BillClient.cs" Line="1" Column="1" />
-      <File FileName="FreeAgent.Tests/KeyStorage.cs" Line="21" Column="6" />
+      <File FileName="FreeAgent.Tests/KeyStorage.cs" Line="8" Column="64" />
       <File FileName="FreeAgent.Tests/MultiConnectTestFixture.cs" Line="35" Column="29" />
+      <File FileName="FreeAgent/Models/Accounting.cs" Line="11" Column="34" />
+      <File FileName="FreeAgent/Client/AccountingClient.cs" Line="25" Column="63" />
+      <File FileName="FreeAgent/Client/CompanyClient.cs" Line="9" Column="5" />
+      <File FileName="FreeAgent/Client/Client.cs" Line="176" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,12 +18,12 @@
           <Node name="FreeAgent" expanded="True">
             <Node name="References" expanded="True" />
             <Node name="Authenticators" expanded="True" />
-            <Node name="Client" expanded="True" />
+            <Node name="Client" expanded="True">
+              <Node name="Client.cs" selected="True" />
+            </Node>
             <Node name="Models" expanded="True" />
           </Node>
-          <Node name="FreeAgent.Tests" expanded="True">
-            <Node name="KeyStorage.cs" selected="True" />
-          </Node>
+          <Node name="FreeAgent.Tests" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
