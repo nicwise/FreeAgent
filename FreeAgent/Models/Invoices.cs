@@ -116,6 +116,27 @@ namespace FreeAgent
 
         public List<Invoice> invoices { get; set; }
     }
+
+	public class InvoiceEmailWrapper
+	{
+		public InvoiceEmailWrapper() { invoice = new InvoiceEmail (); }
+		public InvoiceEmail invoice { get; set; }
+	}
+
+	public class InvoiceEmail
+	{
+		public InvoiceEmail() { email = new InvoiceEmailDetail (); }
+		public InvoiceEmailDetail email { get; set; }
+	}
+
+	public class InvoiceEmailDetail 
+	{
+		public string to { get; set; }
+		public string @from { get; set; }
+		public string subject { get; set; }
+		public string body { get; set; }
+	}
+
 	
 	
 }

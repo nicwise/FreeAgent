@@ -52,6 +52,27 @@ namespace FreeAgent
             });
         }
 
+		public bool SendEmail(string invoiceId, InvoiceEmail email)
+		{
+			var request = CreateBasicRequest(Method.POST, "/{id}/send_email");
+
+			request.RequestFormat = DataFormat.Json;
+
+			request.AddUrlSegment ("id", invoiceId);
+			request.AddBody(new InvoiceEmailWrapper() { invoice = email });  
+
+
+			var response = Client.Execute(request);
+
+			if (response != null)
+				return response.StatusCode == System.Net.HttpStatusCode.OK;
+
+			return false;
+
+
+
+		}
+
 
         
         

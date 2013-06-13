@@ -34,6 +34,7 @@ namespace FreeAgent
         public double initial_rate_mileage { get; set; }
         public string receipt_reference { get; set; }
         public int ec_status { get; set; }
+		public string currency { get; set; }
 
 
         public double manual_sales_tax_amount { get; set;}
