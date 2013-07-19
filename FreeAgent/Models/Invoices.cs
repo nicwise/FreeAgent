@@ -8,7 +8,7 @@ namespace FreeAgent
 	
 	//https://api.freeagent.com/v2/contacts
 	
-	public class Invoice : UpdatableModel
+	public class Invoice : UpdatableModel, IRemoveUrlOnSerialization, IRemoveRecurringOnSerialization
 	{
 		public Invoice() : base()
 		{

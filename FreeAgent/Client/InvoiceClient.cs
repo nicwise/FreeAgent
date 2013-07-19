@@ -73,6 +73,25 @@ namespace FreeAgent
 
 		}
 
+		public bool MarkAsSent(string invoiceId)
+		{
+			var request = CreateBasicRequest(Method.PUT, "/{id}/transitions/mark_as_sent");
+
+			request.RequestFormat = DataFormat.Json;
+
+			request.AddUrlSegment ("id", invoiceId);
+
+			var response = Client.Execute(request);
+
+			if (response != null)
+				return response.StatusCode == System.Net.HttpStatusCode.OK;
+
+			return false;
+
+
+
+		}
+
 
         
         

@@ -72,6 +72,9 @@ namespace FreeAgent
             json = Remove(json, "\"mileage\":0");
             json = Remove(json, "\"ec_status\":0");
 
+			//invoice
+			json = Remove (json, "\"reference\":\"\"");
+
 
                
 
