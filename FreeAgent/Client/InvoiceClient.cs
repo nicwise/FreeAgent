@@ -92,6 +92,25 @@ namespace FreeAgent
 
 		}
 
+		public bool MarkAsDraft(string invoiceId)
+		{
+			var request = CreateBasicRequest(Method.PUT, "/{id}/transitions/mark_as_draft");
+
+			request.RequestFormat = DataFormat.Json;
+
+			request.AddUrlSegment ("id", invoiceId);
+
+			var response = Client.Execute(request);
+
+			if (response != null)
+				return response.StatusCode == System.Net.HttpStatusCode.OK;
+
+			return false;
+
+
+
+		}
+
 		public bool DeleteLine(string lineId)
 		{
 			var request = CreateBasicRequest(Method.DELETE, "/{id}", resourceOverride:"invoice_items");

@@ -37,7 +37,7 @@ namespace FreeAgent
 	
 	public class InvoiceItem
 	{
-		public string id { get; set; }
+		public string url { get; set; }
 		public int position { get; set; }
 		public string item_type  { get; set; }
 		public double quantity { get; set; }
