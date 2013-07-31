@@ -43,12 +43,17 @@ namespace FreeAgent
             //
         }
 
-        public virtual RestRequest CreateBasicRequest(Method method, string appendToUrl = "")
+        public virtual RestRequest CreateBasicRequest(Method method, string appendToUrl = "", string resourceOverride = null)
         {
             var request = new RestRequest(method);
             request.Resource = "v{version}/{resource}" + appendToUrl;
             request.AddParameter("version", Version, ParameterType.UrlSegment);
-            request.AddParameter("resource", ResouceName, ParameterType.UrlSegment);
+			if (string.IsNullOrEmpty (resourceOverride))
+			{
+				request.AddParameter ("resource", ResouceName, ParameterType.UrlSegment);
+			} else {
+				request.AddParameter ("resource", resourceOverride, ParameterType.UrlSegment);
+			}
             SetAuthentication(request);
 
             return request;

@@ -92,6 +92,22 @@ namespace FreeAgent
 
 		}
 
+		public bool DeleteLine(string lineId)
+		{
+			var request = CreateBasicRequest(Method.DELETE, "/{id}", resourceOverride:"invoice_items");
+
+			request.RequestFormat = DataFormat.Json;
+
+			request.AddUrlSegment ("id", lineId);
+
+			var response = Client.Execute(request);
+
+			if (response != null)
+				return response.StatusCode == System.Net.HttpStatusCode.OK;
+
+			return false;
+		}
+
 
         
         
