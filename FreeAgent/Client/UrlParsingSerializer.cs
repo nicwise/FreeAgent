@@ -42,8 +42,7 @@ namespace FreeAgent
 			json = Remove(json, "\"recurring_end_date\":\"0001-01-01\"");
 			json = Remove (json, "\"currency\":null");
 			json = Remove (json, "\"currency\":\"\"");
-
-
+			
             json = Remove(json, "\"reclaim_mileage_rate\":-1.0");
 			json = Remove(json, "\"reclaim_mileage_rate\":-1");
 

@@ -79,6 +79,8 @@ namespace FreeAgent
 		public static string Discount = "Discount";
 		public static string Credit = "Credit";
 		public static string VAT = "VAT";
+		public static string NoUnit = "No Unit";
+
 	}
 
     public class InvoiceViewFilter 
