@@ -112,6 +112,70 @@ namespace FreeAgent
 		public List<BankTransaction> bank_transactions { get; set; }
 	}
 
+	public class BankTransactionExplanation : UpdatableModel
+	{
+		public string bank_account { get; set; }
+
+		public string bank_transaction { get; set; }
+
+		public string dated_on { get; set; }
+
+		public double gross_value { get; set; }
+
+		public string description { get; set; }
+
+		public string category { get; set; }
+
+		public string rebill_type { get; set; }
+
+		public double foreign_currency_value { get; set; }
+
+		public double manual_sales_tax_amount { get; set; }
+
+		public double sales_tax_rate { get; set; }
+
+		public double rebill_factor { get; set; }
+
+		public ExpenseAttachment attachment  { get; set; }
+
+		/* public string receipt_reference { get; set; }
+
+
+
+		public int ec_status { get; set; }
+
+		public string currency { get; set; }
+
+
+		public bool have_vat_receipt { get; set; }
+*/
+
+	}
+
+	public class BankTransactionExplanationWrapper
+	{
+		public BankTransactionExplanationWrapper()
+		{
+
+			bank_transaction_explanation = null;
+		}
+
+		public BankTransactionExplanation bank_transaction_explanation { get; set; }
+
+	}
+
+	public class BankTransactionExplanationsWrapper
+	{
+		public BankTransactionExplanationsWrapper()
+		{
+			bank_transaction_explanations = new List<BankTransactionExplanation>();
+
+		}
+
+		public List<BankTransactionExplanation> bank_transaction_explanations { get; set; }
+	}
+
+
 }
 
 
