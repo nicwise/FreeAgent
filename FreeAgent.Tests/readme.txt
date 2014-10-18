@@ -5,12 +5,17 @@ namespace FreeAgent.Tests
 {
     public class KeyStorage
     {
+        public static bool UseSandbox = true; 
+        public static bool UseProxy = false; 
+
         public static string AppKey = "YOUR_API_KEY_HERE";
         public static string AppSecret = "YOUR_API_SECRET_HERE";
 
         public static string RefreshToken = "TOKEN TO USE FOR REFRESHING";
     }
 }
+
+If you use a local proxy be sure to change UseProxy to true and change the proxy as required.
 
 To make a new RefreshToken, you can use the Google OAuth playground, or:
 

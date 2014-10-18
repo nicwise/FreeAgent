@@ -7,10 +7,10 @@ namespace FreeAgent.Tests
 {
     public static class KeyStorage
     {
-        public static bool UseSandbox { get { return true; } }
-        public static bool UseProxy { get { return true; } }
-        public static string AppKey { get { return "*your appkey here*"; } }
-        public static string AppSecret { get { return "*your appsecret here*"; } }
-        public static string RefreshToken { get { return "*your refreshtoken here*"; } }
+        public static bool UseSandbox = true; 
+        public static bool UseProxy = false; 
+        public static string AppKey = "*your appkey here*"; 
+        public static string AppSecret = "*your appsecret here*"; 
+        public static string RefreshToken = "*your refreshtoken here*"; 
     }
 }
