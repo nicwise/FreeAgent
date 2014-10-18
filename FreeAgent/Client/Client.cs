@@ -83,11 +83,7 @@ namespace FreeAgent
             CurrentAccessToken = savedToken;
 
             LoadClient();
-
-
         }
-
-
 
         private void LoadClient()
         {
@@ -105,7 +101,6 @@ namespace FreeAgent
             //Default to full access
             //UseSandbox = false;
   			SetupClients();
-			
 		}
 		
 		public void SetProxy()
@@ -113,10 +108,6 @@ namespace FreeAgent
 			_restClient.Proxy = Proxy;
 		}
 		
-		
-
-
-
         /// <summary>
         /// Helper Method to Build up the Url to authorize a Token/Secret
         /// </summary>
@@ -152,7 +143,6 @@ namespace FreeAgent
 			return "";
 			
 		}
-
 		
 		public CompanyClient Company = null;
 		public AccountingClient Accounting = null;
@@ -185,8 +175,6 @@ namespace FreeAgent
             BankTransaction = new BankTransactionClient(this);
 			Bill = new BillClient(this);
 		}
-  
-
 
 		private bool IsSuccess(HttpStatusCode code)
 		{
