@@ -49,7 +49,7 @@ namespace FreeAgent
                 {
                     r.AddParameter("to_date", to_date, ParameterType.GetOrPost);
                 }
-                if (!string.IsNullOrEmpty("view"))
+                if (!string.IsNullOrEmpty(view))
                 {
                     r.AddParameter("view", view, ParameterType.GetOrPost);
                 }
